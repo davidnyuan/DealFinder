@@ -1,5 +1,6 @@
 import React from 'react';
-import {Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl, Button} from 'react-bootstrap'
+import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import {hashHistory} from 'react-router';
 
 class App extends React.Component {
   render() {
@@ -20,14 +21,14 @@ class Navigation extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a>Deal Finder</a>
+            <a onClick={()=>hashHistory.push('/')}>Deal Finder</a>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
-          <NavItem>Sign Up</NavItem>
-          <NavItem>Login</NavItem>
-          <NavItem>Wishlist</NavItem>
-          <NavItem>Account Settings</NavItem>
+          <NavItem onClick={()=>hashHistory.push('/signup')}>Sign Up</NavItem>
+          <NavItem onClick={()=>hashHistory.push('/login')}>Login</NavItem>
+          <NavItem onClick={()=>hashHistory.push('/search')}>Search</NavItem>
+          <NavItem onClick={()=>hashHistory.push('/account')}>Account Settings</NavItem>
         </Nav>
       </Navbar>
 
