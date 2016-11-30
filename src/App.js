@@ -1,16 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl, Button} from 'react-bootstrap'
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
+      <div>
+        <Navigation />
+        <div className="container">
+          {this.props.children}
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
+    );
+  }
+}
+
+class Navigation extends React.Component {
+  render() {
+    return (
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a>Deal Finder</a>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Nav>
+          <NavItem>Sign Up</NavItem>
+          <NavItem>Login</NavItem>
+          <NavItem>Wishlist</NavItem>
+          <NavItem>Account Settings</NavItem>
+        </Nav>
+      </Navbar>
+
     );
   }
 }
