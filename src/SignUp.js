@@ -2,19 +2,21 @@ import React from 'react';
 import firebase from 'firebase';
 import {hashHistory} from 'react-router';
 import {RequiredInput} from './Login'
+import Loader from 'react-loader';
 
 class SignUpForm extends React.Component {
   constructor(props){
     super(props);
     this.state = { //track values and overall validity of each field
-      email:{value:'',valid:false},
-      name:{value:'',valid:false},
-      dob:{value:'',valid:false},
-      password:{value:'',valid:false},
-      passwordConf:{value:'',valid:false}
+      email: {value:'',valid:false},
+      name: {value:'',valid:false},
+      dob: {value:'',valid:false},
+      password: {value:'',valid:false},
+      passwordConf: {value:'',valid:false},
+      loaded: true
     };
 
-    this.updateState = this.updateState.bind(this); //bind for scope
+    this.updateState = this.updateState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -25,19 +27,18 @@ class SignUpForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({loaded: false})
     firebase.auth().createUserWithEmailAndPassword(this.state.email.value, this.state.password.value)
       .then((firebaseUser) => {
         //include information (for app-level content)
         var profilePromise = firebaseUser.updateProfile({
           displayName: this.state.name.value,
-          dob: this.state.dob.value
         });
 
         //create new entry in the Cloud DB (for others to reference)
         var userRef = firebase.database().ref('users/'+firebaseUser.uid);
         var userData = {
           handle:this.state.name.value,
-          dob: this.state.dob.value
         }
         var userPromise = userRef.set(userData); //update entry in JOITC, return promise for chaining
 
@@ -46,44 +47,46 @@ class SignUpForm extends React.Component {
         return Promise.all([profilePromise, userPromise, emailPromise]);
 
       })
-      .then(() => console.log('Success!'))
-      .catch((e) => console.log(e));
+      .then(() => {this.setState({loaded: true})})
+      .then(() => hashHistory.push('/account'))
+      .catch((e) => {
+        this.setState({loaded: true})
+        console.log(e.message)
+      });
 
   }
 
   render() {
     //if all fields are valid, button should be enabled
-    var buttonDisabled = !(this.state.email.valid && this.state.name.valid && this.state.dob.valid && this.state.password.valid && this.state.passwordConf.valid);
+    var buttonDisabled = !(this.state.email.valid && this.state.name.valid && this.state.password.valid && this.state.passwordConf.valid);
 
 
     return (
-      <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
+      <div>
+        <Loader loaded={this.state.loaded}>
+        </Loader>
 
-        <EmailInput value={this.state.email.value} updateParent={this.updateState} />
+        <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
 
-        <RequiredInput
-          id="name" field="name" type="text"
-          label="Name" placeholder="your name"
-          errorMessage="we need to know your name"
-          value={this.state.name.value}
-          updateParent={this.updateState} />
+          <EmailInput value={this.state.email.value} updateParent={this.updateState} />
 
-        <BirthdayInput value={this.state.dob.value} updateParent={this.updateState}/>
+          <RequiredInput
+            id="name" field="name" type="text"
+            label="Name" placeholder="your name"
+            errorMessage="we need to know your name"
+            value={this.state.name.value}
+            updateParent={this.updateState} />
 
-        <RequiredInput
-          id="password" field="password" type="password"
-          label="Password" placeholder="password"
-          errorMessage="your password can't be blank"
-          value={this.state.password.value}
-          updateParent={this.updateState} />
+          <PasswordInput value={this.state.password.value} updateParent={this.updateState} />
 
-        <PasswordConfirmationInput value={this.state.passwordConf.value} password={this.state.password.value} updateParent={this.updateState}/>
+          <PasswordConfirmationInput value={this.state.passwordConf.value} password={this.state.password.value} updateParent={this.updateState} />
 
-        <div className="form-group">
-          <button id="submitButton" type="submit" className="btn btn-primary" disabled={buttonDisabled}>Sign Me Up!</button>
-        </div>
+          <div className="form-group">
+            <button id="submitButton" type="submit" className="btn btn-primary" disabled={buttonDisabled}>Sign Me Up!</button>
+          </div>
 
-      </form>
+        </form>
+      </div>
     );
   }
 }
@@ -146,29 +149,14 @@ class EmailInput extends React.Component {
   }
 }
 
-
-/**
- * A component representing a controlled input for a birthdate (min age: 13)
- */
-class BirthdayInput extends React.Component {
+class PasswordInput extends React.Component {
   validate(currentValue){
-    if(currentValue === ''){ //check presence
-      return {missing:true, isValid:false}
+    if(currentValue === '') { //check both entries. both empty invalid
+      return {missing:true, isValid:false};
     }
 
-    //check date validity
-    var timestamp = Date.parse(currentValue); //use built-in Date type
-    // console.log(timestamp);
-    if(isNaN(timestamp)) { //it not a valid stamp
-      return {notDate:true, isValid:false};
-    }
-
-    //check age range
-    var d = new Date(); //today
-    d.setYear(d.getFullYear() - 13); //subtract 13 from the year
-    var minTimestamp = d.getTime();
-    if(timestamp > minTimestamp){
-      return {notOldEnough:true, isValid:false}
+    if(currentValue.length < 6) {
+      return {short:true, isValid:false};
     }
 
     return {isValid: true}; //no errors
@@ -177,10 +165,9 @@ class BirthdayInput extends React.Component {
   handleChange(event){
     //check validity (to inform parent)
     var isValid = this.validate(event.target.value).isValid;
-
     //what to assign to parent's state
     var stateUpdate = {
-      'dob': {
+      'password': {
         value:event.target.value,
         valid:isValid
       }
@@ -196,25 +183,21 @@ class BirthdayInput extends React.Component {
 
     return (
       <div className={inputStyle}>
-        <label htmlFor="dob">Birthdate</label>
-        <input type="text" id="dob" name="dob" className="form-control" placeholder="your birthdate"
+        <label htmlFor="passwordConf">Confirm Password</label>
+        <input type="password" id="passwordConf" name="passwordConf" className="form-control" placeholder="confirm password"
                 value={this.props.value}
                 onChange={(e) => this.handleChange(e)}
         />
         {errors.missing &&
-          <p className="help-block error-missing">we need to know your birthdate</p>
+          <p className="help-block error-missing">Password field cannot be blank</p>
         }
-        {errors.notDate &&
-          <p className="help-block error-invalid">that isnt a valid date</p>
-        }
-        {errors.notOldEnough &&
-          <p className="help-block error-not-old">sorry, you must be at least 13 to sign up</p>
+        {errors.short &&
+          <p className="help-block error-length">Password must be at least 6 characters</p>
         }
       </div>
     );
   }
 }
-
 
 /**
  * A component representing a controlled input for a password confirmation
@@ -229,11 +212,14 @@ class PasswordConfirmationInput extends React.Component {
       return {mismatched:true, isValid:false};
     }
 
+    if(currentValue.length < 6) {
+      return {short:true, isValid:false};
+    }
+
     return {isValid: true}; //no errors
   }
 
   handleChange(event){
-
     //check validity (to inform parent)
     var isValid = this.validate(event.target.value).isValid;
     //what to assign to parent's state
@@ -265,6 +251,11 @@ class PasswordConfirmationInput extends React.Component {
         {errors.mismatched &&
           <p className="help-block error-mismatched">Passwords do not match</p>
         }
+
+        {errors.short &&
+          <p className="help-block error-length">Password must be at least 6 characters</p>
+        }
+
       </div>
     );
   }

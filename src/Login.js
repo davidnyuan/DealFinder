@@ -1,8 +1,12 @@
 import React from 'react';
 import firebase from 'firebase';
 import {hashHistory} from 'react-router';
+import Loader from 'react-loader';
 
 // TODO: MAKE A LOADER FOR WHEN IT'S SIGNING IN
+// TODO: Make error messages not bark at users from the start.
+// TODO: Make other stuff redirect to other places when not authorized
+
 class LoginForm extends React.Component {
   constructor(props){
     super(props);
@@ -10,6 +14,7 @@ class LoginForm extends React.Component {
       email: {value:'',valid:false},
       password: {value:'',valid:false},
       submitted: false,
+      loaded: true
     };
 
     this.updateState = this.updateState.bind(this); //bind for scope
@@ -21,16 +26,16 @@ class LoginForm extends React.Component {
     this.setState(stateChange);
   }
 
-  submitCallback(email, password) {
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(() => console.log('success!'))
-      .then(() => hashHistory.push('/account'))
-      .catch((e) => console.log(e))
-  }
-
   handleSubmit(event) {
     event.preventDefault();
-    this.submitCallback(this.state.email.value, this.state.password.value);
+    this.setState({loaded: false}); // show loading icon while signing in
+    firebase.auth().signInWithEmailAndPassword(this.state.email.value, this.state.password.value)
+      .then(() => this.setState({loaded: true}))
+      .then(() => hashHistory.push('/account'))
+      .catch((e) => {
+        this.setState({loaded: true})
+        console.log(e.message)
+      });
   }
 
 
@@ -40,27 +45,31 @@ class LoginForm extends React.Component {
     var buttonDisabled = !(this.state.email.valid && this.state.password.valid);
 
     return (
-      <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
+      <div>
+        <Loader loaded={this.state.loaded}>
+        </Loader>
+        <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
 
-        <RequiredInput
-          id="email" field="email" type="text"
-          label="Email" placeholder="your email"
-          errorMessage="we need to know your email"
-          value={this.state.email.value}
-          updateParent={this.updateState}/>
+          <RequiredInput
+            id="email" field="email" type="text"
+            label="Email" placeholder="your email"
+            errorMessage="we need to know your email"
+            value={this.state.email.value}
+            updateParent={this.updateState}/>
 
-        <RequiredInput
-          id="password" field="password" type="password"
-          label="Password" placeholder="password"
-          errorMessage="your password can't be blank"
-          value={this.state.password.value}
-          updateParent={this.updateState}/>
+          <RequiredInput
+            id="password" field="password" type="password"
+            label="Password" placeholder="password"
+            errorMessage="your password can't be blank"
+            value={this.state.password.value}
+            updateParent={this.updateState}/>
 
-        <div className="form-group">
-          <button id="submitButton" type="submit" className="btn btn-primary" disabled={buttonDisabled}>Sign In</button>
-        </div>
+          <div className="form-group">
+            <button id="submitButton" type="submit" className="btn btn-primary" disabled={buttonDisabled}>Sign In</button>
+          </div>
 
-      </form>
+        </form>
+      </div>
     );
   }
 }

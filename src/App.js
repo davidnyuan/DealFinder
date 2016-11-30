@@ -1,6 +1,7 @@
 import React from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap'
 import {hashHistory} from 'react-router';
+import firebase from 'firebase';
 
 class App extends React.Component {
   render() {
@@ -16,6 +17,9 @@ class App extends React.Component {
 }
 
 class Navigation extends React.Component {
+  signOut() {
+    firebase.auth().signOut();
+  }
   render() {
     return (
       <Navbar>
@@ -29,6 +33,9 @@ class Navigation extends React.Component {
           <NavItem onClick={()=>hashHistory.push('/login')}>Login</NavItem>
           <NavItem onClick={()=>hashHistory.push('/search')}>Search</NavItem>
           <NavItem onClick={()=>hashHistory.push('/account')}>Account Settings</NavItem>
+        </Nav>
+        <Nav pullRight>
+          <NavItem onClick={this.signOut}>Sign Out</NavItem>
         </Nav>
       </Navbar>
 
