@@ -10,6 +10,15 @@ import SignUpPage from './SignUp';
 import firebase from 'firebase';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router'
 
+var config = {
+  apiKey: "AIzaSyBzVLypzFs66ZSkonadbn1QdvbI08XO8-E",
+  authDomain: "dealfinder-32f8e.firebaseapp.com",
+  databaseURL: "https://dealfinder-32f8e.firebaseio.com",
+  storageBucket: "dealfinder-32f8e.appspot.com",
+  messagingSenderId: "25379307270"
+};
+firebase.initializeApp(config);
+
 //load our CSS files
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
