@@ -1,4 +1,5 @@
 import React from 'react';
+import DataController from './DataController.js';
 
 class SearchPage extends React.Component {
   render() {
