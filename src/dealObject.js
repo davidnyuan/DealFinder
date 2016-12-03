@@ -1,5 +1,4 @@
 class dealObject {
-
     constructor(iName, cName, cPrice, dPrice, oPrice, iURL, wURL, sCompany) {
         this.itemName = iName;
         this.companyName = cName;
