@@ -22,6 +22,10 @@ class DataController {
 
         return objectArray;
     }
+
+    getDummy() {
+        console.log("Dummy received");
+    }
 }
 
 export default DataController
