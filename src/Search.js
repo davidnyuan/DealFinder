@@ -2,16 +2,25 @@ import React from 'react';
 import DataController from './DataController.js';
 import dealObject from './dealObject.js';
 import {Button, Collapse} from 'react-bootstrap';
+import _ from 'lodash';
 
 class SearchPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    var controller = new DataController();
+    console.log("Submitted!");
+    controller.getDummy();
+  }
+
   render() {
     return (
       <div>
-        <form id="searchForm">
+        <form id="searchForm" onSubmit={(e) => this.handleSubmit(e)}>
           <input type="text" /><input type="submit" />
         </form>
 
@@ -20,7 +29,14 @@ class SearchPage extends React.Component {
         </Button>
         <Collapse id="filterOptions" in={this.state.open}>
           <div>
-              Actual options go here.
+              <form>
+                <input type="radio" name="filterOp" value="price" />Price<br />
+                <input type="radio" name="filterOp" value="discount" /> Discount<br />
+              </form>
+              <form>
+                <input type="radio" name="filterOp" value="ascending" />Ascending<br />
+                <input type="radio" name="filterOp" value="descending" /> Descending<br />
+              </form>
           </div>
         </Collapse>
 

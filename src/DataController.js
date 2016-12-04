@@ -8,6 +8,10 @@ class DataController {
 
         })
     }
+
+    getDummy() {
+        console.log("Dummy received");
+    }
 }
 
 export default DataController
