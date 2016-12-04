@@ -1,5 +1,4 @@
 import dealObject from './dealObject.js';
-import jQuery from '//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js';
 
 var objectArray = [];
 
@@ -7,11 +6,12 @@ class DataController {
     grabData(query) {
         query = query.replace(" ", "%20");
         //sqoot
-        $.getJSON('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&online=true&query=' + query)
+        fetch('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&online=true&query=' + query)
         .then((res) => {
+            res = JSON.parse(res);
             for (var i in res.deals) {
                 if('key' in i === 'deal') {
-                    objectArray.append(dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage, deal.value, deal.image_url, deal.url, deal.merchant.name.split(" ")[0]));
+                    objectArray.append(dealObject('key'.title, 'key'.provider_name, 'key'.price, 'key'.discount_percentage, 'key'.value, 'key'.image_url, 'key'.url, 'key'.merchant.name.split(" ")[0]));
                 }
             };
         })
