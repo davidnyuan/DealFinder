@@ -4,8 +4,21 @@ body {
   font-family: sans-serif;
 }
 
+#filterButton {
+  display: inline-block;
+}
+
+#filterOptions {
+  margin-left: 10px;
+}
+
 .item {
-  width: 800px;
+  flex-basis: 30%;
+  margin: 10px;
+}
+
+.itemDiscount {
+  font-weight: bold;
 }
 
 .itemImg {
@@ -25,4 +38,14 @@ body {
 
 .itemPrice {
   font-size: 1.3em;
+}
+
+#searchForm {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#searchResults {
+  display: flex;
+  flex-wrap: wrap;
 }
