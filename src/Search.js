@@ -7,17 +7,30 @@ import _ from 'lodash';
 class SearchPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      objects: []
+    };
   }
 
   handleSubmit(event) {
     event.preventDefault();
     var controller = new DataController();
     console.log("Submitted!");
-    controller.getDummy();
+    var resultsArr = controller.grabData('headphones');
+    // var resultsArr = controller.getDummy();
+    console.log(resultsArr);
+    // this.setState({objects: resultsArr});
   }
 
   render() {
+    //Map all objects in state to ItemObject components
+    var dealObjects = this.state.objects.map((item) => {
+      return ( 
+        <ItemObject itemName={item.itemName} companyName={item.companyName} currentPrice={item.currentPrice} discount={item.discountRate}
+                    imageUrl={item.imageURL} websiteUrl={item.websiteURL} sourceName="Sqoot" />
+      );
+    });
+
     return (
       <div>
         <form id="searchForm" onSubmit={(e) => this.handleSubmit(e)}>
@@ -41,7 +54,8 @@ class SearchPage extends React.Component {
         </Collapse>
 
         <div id="searchResults">
-        <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
+        {dealObjects}
+        {/*<ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
                     imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
         <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
                     imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
@@ -55,6 +69,7 @@ class SearchPage extends React.Component {
                     imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
         <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
                     imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
+                    */}
         </div>
       </div>
     );
