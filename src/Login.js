@@ -3,10 +3,6 @@ import firebase from 'firebase';
 import {hashHistory} from 'react-router';
 import Loader from 'react-loader';
 
-// TODO: MAKE A LOADER FOR WHEN IT'S SIGNING IN
-// TODO: Make error messages not bark at users from the start.
-// TODO: Make other stuff redirect to other places when not authorized
-
 class LoginForm extends React.Component {
   constructor(props){
     super(props);
@@ -28,24 +24,28 @@ class LoginForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({loaded: false}); // show loading icon while signing in
-    firebase.auth().signInWithEmailAndPassword(this.state.email.value, this.state.password.value)
+    this.setState({submitted: true});
+    console.log(this.state.submitted);
+    if(this.state.email.valid && this.state.password.valid) { // dont want to do anything if invalid
+      this.setState({loaded: false}); // show loading icon while signing in
+      firebase.auth().signInWithEmailAndPassword(this.state.email.value, this.state.password.value)
       .then(() => this.setState({loaded: true}))
       .then(() => hashHistory.push('/account'))
       .catch((e) => {
         this.setState({loaded: true})
         console.log(e.message)
       });
+    }
   }
 
 
   render() {
     // button disabled if invalid email or invalid password.  button enabled if user hasn't submitted once before.
     // turns on validation after the first submit
-    var buttonDisabled = !(this.state.email.valid && this.state.password.valid);
-
+    var buttonDisabled = this.state.submitted && !(this.state.email.valid && this.state.password.valid);
     return (
-      <div>
+      <div className="col-md-4 pull-right">
+        <img src="img/no-image-available.png" alt="no image available" />
         <Loader loaded={this.state.loaded}>
         </Loader>
         <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
@@ -55,14 +55,16 @@ class LoginForm extends React.Component {
             label="Email" placeholder="your email"
             errorMessage="we need to know your email"
             value={this.state.email.value}
-            updateParent={this.updateState}/>
+            updateParent={this.updateState}
+            submitted={this.state.submitted}/>
 
           <RequiredInput
             id="password" field="password" type="password"
             label="Password" placeholder="password"
             errorMessage="your password can't be blank"
             value={this.state.password.value}
-            updateParent={this.updateState}/>
+            updateParent={this.updateState}
+            submitted={this.state.submitted}/>
 
           <div className="form-group">
             <button id="submitButton" type="submit" className="btn btn-primary" disabled={buttonDisabled}>Sign In</button>
@@ -104,7 +106,7 @@ class RequiredInput extends React.Component {
   render() {
     var errors = this.validate(this.props.value); //need to validate again, but at least isolated
     var inputStyle = 'form-group';
-    if(!errors.isValid) inputStyle += ' has-error';
+    if(!errors.isValid && this.props.submitted) inputStyle += ' has-error';
 
     return (
       <div className={inputStyle}>
@@ -113,7 +115,7 @@ class RequiredInput extends React.Component {
                 value={this.props.value}
                 onChange={(e) => this.handleChange(e)}
         />
-        {!errors.isValid &&
+        {!errors.isValid && this.props.submitted &&
           <p className="help-block error-missing">{this.props.errorMessage}</p>
         }
       </div>
