@@ -15,17 +15,14 @@ class SearchPage extends React.Component {
           <input type="text" /><input type="submit" />
         </form>
 
-        <div id="filterOptions">
         <Button id="filterButton" onClick={ ()=> this.setState({ open: !this.state.open })}>
           Filter <span className="caret"></span>
         </Button>
-        <Collapse in={this.state.open}>
+        <Collapse id="filterOptions" in={this.state.open}>
           <div>
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-              Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+              Actual options go here.
           </div>
         </Collapse>
-        </div>
 
         <div id="searchResults">
         <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"

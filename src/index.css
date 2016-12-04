@@ -5,7 +5,7 @@ body {
 }
 
 #filterButton {
-  display: inline-block;
+  /*float: right;*/
 }
 
 #filterOptions {
