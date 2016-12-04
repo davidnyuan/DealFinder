@@ -17,22 +17,24 @@ var DataController = {
       "Keywords": "phone battery",
       "ResponseGroup": "Offers",
       "Timestamp": timestamp
+    }
+  },
 
-    grabData: function(query) {
-        var objectArray = [];
-        var result = "before";
-        query = query.replace(" ", "%20");
-        //sqoot
-        fetch('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&online=true&query=' + query)
+  grabData: function(query) {
+      var objectArray = [];
+      var result = "before";
+      query = query.replace(" ", "%20");
+      //sqoot
+      fetch('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&online=true&query=' + query)
         .then((res) => {
-            // return res.json();
-            res = JSON.parse(res);
-            for (var i in res.deals) {
-                if('key' in i === 'deal') {
-                    objectArray.append(dealObject('key'.title, 'key'.provider_name, 'key'.price, 'key'.discount_percentage, 'key'.value, 'key'.image_url, 'key'.url, 'key'.merchant.name.split(" ")[0]));
-                }
-            };
-            return res.query.total;
+          // return res.json();
+          res = JSON.parse(res);
+          for (var i in res.deals) {
+              if('key' in i === 'deal') {
+                  objectArray.append(dealObject('key'.title, 'key'.provider_name, 'key'.price, 'key'.discount_percentage, 'key'.value, 'key'.image_url, 'key'.url, 'key'.merchant.name.split(" ")[0]));
+              }
+          }
+          return res.query.total;
         });
         // })
         // .then((data) => {
@@ -52,22 +54,21 @@ var DataController = {
         // return objectArray;
         console.log(result);
         return result;
-    }
+  },
 
-    getDummy: function() {
-        console.log("Dummy received");
-        var dummyObject = [{
-            itemName: 'item',
-            companyName: 'company',
-            currentPrice: 'currPrice',
-            discountRate: 'discRate',
-            originalPrice: 'origPrice',
-            imageURL: 'defaultImg.png',
-            websiteURL: 'https://www.google.com/',
-            sellerCompany: 'company'
-        }]
-        return dummyObject;
-    }
+  getDummy: function() {
+      console.log("Dummy received");
+      var dummyObject = [{
+          itemName: 'item',
+          companyName: 'company',
+          currentPrice: 'currPrice',
+          discountRate: 'discRate',
+          originalPrice: 'origPrice',
+          imageURL: 'defaultImg.png',
+          websiteURL: 'https://www.google.com/',
+          sellerCompany: 'company'
+      }]
+      return dummyObject;
   }
 }
 
