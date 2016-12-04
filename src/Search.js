@@ -2,16 +2,38 @@ import React from 'react';
 import DataController from './DataController.js';
 import dealObject from './dealObject.js';
 import {Button, Collapse} from 'react-bootstrap';
+import _ from 'lodash';
 
 class SearchPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      objects: []
+    };
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    var controller = new DataController();
+    console.log("Submitted!");
+    var resultsArr = controller.grabData('headphones');
+    // var resultsArr = controller.getDummy();
+    console.log(resultsArr);
+    // this.setState({objects: resultsArr});
+  }
+
   render() {
+    //Map all objects in state to ItemObject components
+    var dealObjects = this.state.objects.map((item) => {
+      return ( 
+        <ItemObject itemName={item.itemName} companyName={item.companyName} currentPrice={item.currentPrice} discount={item.discountRate}
+                    imageUrl={item.imageURL} websiteUrl={item.websiteURL} sourceName="Sqoot" />
+      );
+    });
+
     return (
       <div>
-        <form id="searchForm">
+        <form id="searchForm" onSubmit={(e) => this.handleSubmit(e)}>
           <input type="text" /><input type="submit" />
         </form>
 
@@ -20,12 +42,20 @@ class SearchPage extends React.Component {
         </Button>
         <Collapse id="filterOptions" in={this.state.open}>
           <div>
-              Actual options go here.
+              <form>
+                <input type="radio" name="filterOp" value="price" />Price<br />
+                <input type="radio" name="filterOp" value="discount" /> Discount<br />
+              </form>
+              <form>
+                <input type="radio" name="filterOp" value="ascending" />Ascending<br />
+                <input type="radio" name="filterOp" value="descending" /> Descending<br />
+              </form>
           </div>
         </Collapse>
 
         <div id="searchResults">
-        <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
+        {dealObjects}
+        {/*<ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
                     imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
         <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
                     imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
@@ -39,6 +69,7 @@ class SearchPage extends React.Component {
                     imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
         <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
                     imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
+                    */}
         </div>
       </div>
     );
