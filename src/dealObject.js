@@ -1,9 +1,9 @@
 class dealObject {
-    constructor(iName, cName, cPrice, dPrice, oPrice, iURL, wURL, sCompany) {
+    constructor(iName, cName, cPrice, dRate, oPrice, iURL, wURL, sCompany) {
         this.itemName = iName;
         this.companyName = cName;
         this.currentPrice = cPrice;
-        this.discountRate = dPrice;
+        this.discountRate = dRate;
         this.originalPrice = oPrice;
         this.imageURL = iURL;
         this.websiteURL = wURL;
