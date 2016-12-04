@@ -25,6 +25,17 @@ class DataController {
 
     getDummy() {
         console.log("Dummy received");
+        var dummyObject = [{
+            itemName: 'item',
+            companyName: 'company',
+            currentPrice: 'currPrice',
+            discountRate: 'discRate',
+            originalPrice: 'origPrice',
+            imageURL: 'defaultImg.png',
+            websiteURL: 'https://www.google.com/',
+            sellerCompany: 'company'
+        }]
+        return dummyObject;
     }
 }
 
