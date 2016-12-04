@@ -16,9 +16,10 @@ class SearchPage extends React.Component {
     event.preventDefault();
     var controller = new DataController();
     console.log("Submitted!");
-    // var resultsArr = controller.grabData('headphones');
-    var resultsArr = controller.getDummy();
-    this.setState({objects: resultsArr});
+    var resultsArr = controller.grabData('headphones');
+    // var resultsArr = controller.getDummy();
+    console.log(resultsArr);
+    // this.setState({objects: resultsArr});
   }
 
   render() {
