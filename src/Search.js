@@ -2,7 +2,6 @@ import React from 'react';
 import DataController from './DataController.js';
 import dealObject from './dealObject.js';
 import {Button, Collapse} from 'react-bootstrap';
-import _ from 'lodash';
 
 class SearchPage extends React.Component {
   constructor(props) {
@@ -25,7 +24,7 @@ class SearchPage extends React.Component {
   render() {
     //Map all objects in state to ItemObject components
     var dealObjects = this.state.objects.map((item) => {
-      return ( 
+      return (
         <ItemObject itemName={item.itemName} companyName={item.companyName} currentPrice={item.currentPrice} discount={item.discountRate}
                     imageUrl={item.imageURL} websiteUrl={item.websiteURL} sourceName="Sqoot" />
       );
@@ -86,7 +85,7 @@ class ItemObject extends React.Component {
         <a href={this.props.websiteUrl}><img className="itemImg" src={this.props.imageUrl} alt={this.props.itemName}/></a>
         <p className="itemInfo">
           <span className="itemName">{this.props.itemName}</span> <br />
-          <span className="itemPrice">{this.props.currentPrice} </span> 
+          <span className="itemPrice">{this.props.currentPrice} </span>
           <span className="itemDiscount">{this.props.discount} off </span><br />
           Found via {this.props.sourceName}
         </p>

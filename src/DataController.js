@@ -1,24 +1,41 @@
 import dealObject from './dealObject.js';
+import 'whatwg-fetch'; //for polyfill
 
-var objectArray = [];
+var DataController = {
+    getAmazonData: function (searchQuery) {
+        var aws_access_key_id = "AKIAJH52CXHDZPFFKDAA";
+        var aws_secret_key = "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";
+        var endpoint = "webservices.amazon.com";
+        var uri = "/onca/xml";
+        var timestamp = encodeURIComponent(new Date().toISOString());
+        var params = {
+            "Service": "AWSECommerceService",
+            "Operation": "ItemSearch",
+            "AWSAccessKeyId": "AKIAJH52CXHDZPFFKDAA",
+            "AssociateTag": "de032a-20",
+            "SearchIndex": "All",
+            "Keywords": "phone battery",
+            "ResponseGroup": "Offers",
+            "Timestamp": timestamp
+        }
+    },
 
-class DataController {
-    grabData(query) {
+    grabData: function (query) {
+        var objectArray = [];
+        var result = "before";
         query = query.replace(" ", "%20");
         //sqoot
         fetch('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&online=true&query=' + query)
-
-        .then((res) => {
-            // return res.json();
-            for (var i in res.deals) {
-                if('key' in i === 'deal') {
-                    objectArray.append(new dealObject('key'.title, 'key'.provider_name, 'key'.price, 'key'.discount_percentage, 'key'.value, 'key'.image_url, 'key'.url, 'key'.merchant.name.split(" ")[0]));
-                    console.log("hi");
-                    console.log('key'.title + " " + 'key'.provider_name + " " + 'key'.price+ " " + 'key'.discount_percentage+ " " + 'key'.value + " " +'key'.image_url+ " " + 'key'.url+ " " + 'key'.merchant.name.split(" ")[0]);
+            .then((res) => {
+                // return res.json();
+                for (var i in res.deals) {
+                    if ('key' in i === 'deal') {
+                        objectArray.append(dealObject('key'.title, 'key'.provider_name, 'key'.price, 'key'.discount_percentage, 'key'.value, 'key'.image_url, 'key'.url, 'key'.merchant.name.split(" ")[0]));
+                    }
                 }
-            };
-        });
-        
+                return res.query.total;
+            });
+
         // })
         // .then((data) => {
         //     console.log(data.query.total);
@@ -37,9 +54,11 @@ class DataController {
         // })
 
         // return objectArray;
-    }
+        console.log(result);
+        return result;
+  },
 
-    getDummy() {
+  getDummy: function () {
         console.log("Dummy received");
         var dummyObject = [{
             itemName: 'item',
@@ -55,4 +74,4 @@ class DataController {
     }
 }
 
-export default DataController
+export default DataController;

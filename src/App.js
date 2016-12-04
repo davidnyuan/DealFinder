@@ -1,10 +1,12 @@
 import React from 'react';
-import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
 import {hashHistory} from 'react-router';
 import firebase from 'firebase';
+import DataController from './DataController';
 
 class App extends React.Component {
   render() {
+    DataController.getAmazonData('hello');
     return (
       <div>
         <Navigation />
@@ -19,23 +21,37 @@ class App extends React.Component {
 class Navigation extends React.Component {
   signOut() {
     firebase.auth().signOut();
+    this.redirect('/');
   }
+
+  redirect(route) {
+    if(this.unregister) { // unregister the listener if it has been mounted
+      this.unregister();
+    }
+    hashHistory.push(route);
+  }
+
   render() {
+    var user = firebase.auth().currentUser;
     return (
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a onClick={()=>hashHistory.push('/')}>Deal Finder</a>
+            <a onClick={()=>this.redirect('/')}>Deal Finder</a>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
-          <NavItem onClick={()=>hashHistory.push('/signup')}>Sign Up</NavItem>
-          <NavItem onClick={()=>hashHistory.push('/login')}>Login</NavItem>
-          <NavItem onClick={()=>hashHistory.push('/search')}>Search</NavItem>
-          <NavItem onClick={()=>hashHistory.push('/account')}>Account Settings</NavItem>
+          <NavItem onClick={()=>this.redirect('/signup')}>Sign Up</NavItem>
+          <NavItem onClick={()=>this.redirect('/login')}>Login</NavItem>
+          <NavItem onClick={()=>this.redirect('/search')}>Search</NavItem>
+          <NavItem onClick={()=>this.redirect('/account')}>Account Settings</NavItem>
         </Nav>
         <Nav pullRight>
-          <NavItem onClick={this.signOut}>Sign Out</NavItem>
+          {user &&
+            <NavDropdown title={user.displayName} id="basic-nav-dropdown">
+              <MenuItem onClick={()=>this.signOut()}>Sign Out</MenuItem>
+            </NavDropdown>
+          }
         </Nav>
       </Navbar>
 
