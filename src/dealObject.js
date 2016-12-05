@@ -1,5 +1,5 @@
 class dealObject {
-    constructor(iName, cName, cPrice, dRate, iURL, wURL, sCompany) {
+    constructor(iName, cName, cPrice, dRate, iURL, wURL, sCompany, cAt) {
         this.itemName = iName;
         this.companyName = cName;
         this.currentPrice = cPrice;
@@ -7,6 +7,7 @@ class dealObject {
         this.imageURL = iURL;
         this.websiteURL = wURL;
         this.sellerCompany = sCompany;
+        this.createdAt = cAt;
     }
 }
 
