@@ -9,9 +9,14 @@ class AccountPage extends React.Component {
       super(props);
       this.state = {
         email:'',
-        password:''
+        password:'',
+        showModal: false,
+        modalText:''
       }
     this.changeEmail = this.changeEmail.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.changePassword = this.changePassword.bind(this);
+    this.close = this.close.bind(this);
     }
 
   componentDidMount() {
@@ -33,15 +38,25 @@ class AccountPage extends React.Component {
     this.setState({password: e.target.value})
   }
 
-  changeEmail(email) {
+  openModal(text) {
+    this.setState({showModal: true, modalText: text}); 
+  }
+
+  close(text) {
+    this.setState({showModal: false});
+  }
+
+  changeEmail() {
     var user = firebase.auth().currentUser;
-    user.updateEmail(this.state.email).then(() => hashHistory.push('/account'))
+    console.log(this.state.email)
+    console.log(user)
+    user.updateEmail(this.state.email).then(() => this.openModal("Email changed to: " + (this.state.email)))
   }
 
-  showEmailModal() {
-
+  changePassword() {
+    var user = firebase.auth().currentUser;
+    user.updatePassword(this.state.password).then(() => this.openModal("Your password has been changed."))
   }
-
 
   render() {
     return (
@@ -74,8 +89,23 @@ class AccountPage extends React.Component {
           </FormGroup>
         </form>
         <div>
-          <button type="changePassword">Change password!</button>
+          <button type="button" onClick={this.changePassword}>Change password!</button>
         </div>
+        <Modal
+          show={this.state.showModal}
+          onHide={this.close}
+          aria-labelledby="contained-modal-title"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title">You've made account changes!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {this.state.modalText}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.close}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }
