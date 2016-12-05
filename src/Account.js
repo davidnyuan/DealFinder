@@ -11,7 +11,6 @@ class AccountPage extends React.Component {
         email:'',
         password:''
       }
-    this.newEmail = this.newEmail.bind(this); //bind for scope
     this.changeEmail = this.changeEmail.bind(this);
     }
 
@@ -37,26 +36,12 @@ class AccountPage extends React.Component {
   changeEmail(email) {
     var user = firebase.auth().currentUser;
     user.updateEmail(this.state.email).then(() => hashHistory.push('/account'))
-    const modalInstance = (
-      <div className="static-modal">
-        <Modal.Dialog>
-          <Modal.Header>
-            <Modal.Title>Modal title</Modal.Title>
-          </Modal.Header>
-
-          <Modal.Body>
-            One fine body...
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button>Close</Button>
-            <Button bsStyle="primary">Save changes</Button>
-          </Modal.Footer>
-
-        </Modal.Dialog>
-      </div>
-    );
   }
+
+  showEmailModal() {
+
+  }
+
 
   render() {
     return (
