@@ -71,7 +71,15 @@ var DataController = {
             sellerCompany: 'company'
         }]
         return dummyObject;
-    }
+  },
+
+  // THIS ONE ALSO DOESNT WORK
+  getRakuten: function(keywords) {
+    
+    fetch("http://api.popshops.com/v2/brgymtenmw5ea9unauesmh9nz/products.xml?catalog_key=48qsligejm5qng6cv5waprcoq&keywords=ipod&include_deals=1")
+      .then(res => res.json())
+      .then(json => console.log(json));
+  }
 }
 
 export default DataController;

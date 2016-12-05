@@ -1,7 +1,7 @@
 import React from 'react';
 import DataController from './DataController.js';
 import dealObject from './dealObject.js';
-import {Button, Collapse} from 'react-bootstrap';
+import {Button, Collapse, Modal} from 'react-bootstrap';
 
 class SearchPage extends React.Component {
   constructor(props) {
@@ -19,8 +19,6 @@ class SearchPage extends React.Component {
     resultsArr.then((res) => {
       res.deals.forEach((deals) => {
         var deal = deals.deal;
-        console.log(deal.image_url);
-        console.log(deal.untracked_url);
         objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage, deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0]));
       })
       this.setState({objects: objectArray});
@@ -29,10 +27,10 @@ class SearchPage extends React.Component {
 
   render() {
     //Map all objects in state to ItemObject components
-    var dealObjects = this.state.objects.map((item) => {
+    var dealObjects = this.state.objects.map((item, id) => {
       return (
         <ItemObject itemName={item.itemName} companyName={item.companyName} currentPrice={item.currentPrice} discount={item.discountRate}
-                    imageUrl={item.imageURL} websiteUrl={item.websiteURL} sourceName="Sqoot" />
+                    imageUrl={item.imageURL} websiteUrl={item.websiteURL} sourceName="Sqoot" key={id}/>
       );
     });
 
@@ -59,7 +57,7 @@ class SearchPage extends React.Component {
         </Collapse>
 
         <div id="searchResults">
-         {dealObjects}
+          {dealObjects}
         </div>
       </div>
     );
@@ -69,18 +67,44 @@ class SearchPage extends React.Component {
 class ItemObject extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showModal: false
+    }
+    this.close = this.close.bind(this);
+    this.open = this.open.bind(this);
   }
+
+  close() {
+    this.setState({ showModal: false });
+  }
+
+  open() {
+    this.setState({ showModal: true });
+  }
+
   render() {
     return (
-      <div className="item">
-        <a href={this.props.websiteUrl}><img className="itemImg" src={this.props.imageUrl} alt={this.props.itemName}/></a>
-        <p className="itemInfo">
-          <span className="itemName">{this.props.itemName}</span> <br />
-          <span className="itemPrice">${this.props.currentPrice} </span>
-          <span className="itemDiscount">{this.props.discount * 100}% off </span><br />
-          Found via {this.props.sourceName}
-        </p>
-      </div>
+        <div className="item" role="button" onClick={this.open}>
+          <img className="itemImg" src={this.props.imageUrl} alt={this.props.itemName}/>
+          <p className="itemInfo">
+            <span className="itemName">{this.props.itemName}</span> <br />
+            <span className="itemPrice">${this.props.currentPrice} </span>
+            <span className="itemDiscount">{this.props.discount * 100}% off </span><br />
+            Found via {this.props.sourceName}
+          </p>
+          <Modal show={this.state.showModal} onHide={this.close}>
+            <Modal.Header closeButton>
+              <Modal.Title>{this.props.itemName}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p className="itemPrice">${this.props.currentPrice} </p>
+              <p className="itemDiscount">{this.props.discount * 100}% off </p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={this.close}>Close</Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
     )
   }
 }
