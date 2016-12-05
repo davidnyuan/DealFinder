@@ -45,19 +45,21 @@ class Navigation extends React.Component {
             <NavItem onClick={()=>this.redirect('/login')}>Login</NavItem>
           </Nav>
         }
-        <Nav>
-          <NavItem onClick={()=>this.redirect('/search')}>Search</NavItem>
-          <NavItem onClick={()=>this.redirect('/wishlist')}>Wishlist</NavItem>
-          <NavItem onClick={()=>this.redirect('/favorites')}>Favorites</NavItem>
-        </Nav>
-        <Nav pullRight>
-          {user &&
-            <NavDropdown title={user.displayName} id="basic-nav-dropdown">
-              <MenuItem onClick={()=>this.redirect('/account')}>Account Settings</MenuItem>
-              <MenuItem onClick={()=>this.signOut()}>Sign Out</MenuItem>
-            </NavDropdown>
-          }
-        </Nav>
+        {user &&
+          <Nav>
+            <NavItem onClick={()=>this.redirect('/search')}>Search</NavItem>
+            <NavItem onClick={()=>this.redirect('/wishlist')}>Wishlist</NavItem>
+            <NavItem onClick={()=>this.redirect('/favorites')}>Favorites</NavItem>
+          </Nav>
+        }
+        {user &&
+          <Nav pullRight>
+              <NavDropdown title={user.displayName} id="basic-nav-dropdown">
+                <MenuItem onClick={()=>this.redirect('/account')}>Account Settings</MenuItem>
+                <MenuItem onClick={()=>this.signOut()}>Sign Out</MenuItem>
+              </NavDropdown>
+          </Nav>
+        } 
       </Navbar>
 
     );

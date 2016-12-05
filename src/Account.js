@@ -39,7 +39,7 @@ class AccountPage extends React.Component {
   }
 
   openModal(text) {
-    this.setState({showModal: true, modalText: text}); 
+    this.setState({showModal: true, modalText: text});
   }
 
   close(text) {
@@ -66,8 +66,8 @@ class AccountPage extends React.Component {
             <label>
               Want to change your current e-mail? Enter your new one here:
             </label>
-            <FormControl 
-              type="text" 
+            <FormControl
+              type="text"
               value={this.state.email}
               placeholder="Enter new email"
               onChange={this.newEmail.bind(this)}
@@ -112,7 +112,3 @@ class AccountPage extends React.Component {
 }
 
 export default AccountPage;
-
-
-
-
