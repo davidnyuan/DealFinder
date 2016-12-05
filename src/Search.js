@@ -65,7 +65,7 @@ class SearchPage extends React.Component {
     return (
       <div>
         <form id="searchForm" onSubmit={(e) => this.handleSubmit(e)}>
-          <input id="queryInput" type="text" /><input type="submit" />
+          <input id="queryInput" type="text" /><input type="submit" value="Search"/>
         </form>
 
         <Button id="filterButton" onClick={ ()=> this.setState({ open: !this.state.open })}>
