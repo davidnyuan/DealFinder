@@ -9,8 +9,28 @@ class SearchPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      objects: []
+      objects: [],
+      favorites: []
     };
+    this.updateParent = this.updateParent.bind(this);
+  }
+
+  componentDidMount() {
+    this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {
+      if(firebaseUser) { // there is a user logged in
+        firebase.database().ref('users/' + firebaseUser.uid + '/favorites').once('value')
+          .then((snapshot) => {
+            if(snapshot.val()) { // any values stored then set favorites to it
+              this.setState({favorites: snapshot.val()})
+            }
+          })
+          .catch(e => console.log(e))
+      }
+    });
+  }
+
+  updateParent(input) {
+    this.setState(input);
   }
 
   sortItems(itemArray) {
@@ -57,10 +77,12 @@ class SearchPage extends React.Component {
     //Map all objects in state to ItemObject components
     var dealObjects = this.state.objects.map((item, id) => {
       return (
-        <ItemObject sourceName="Sqoot" item={item} key={id} add={true} />
+        <ItemObject sourceName="Sqoot" item={item} key={id} add={true} updateParent={this.updateParent} favorites={this.state.favorites}/>
       );
     });
 
+    console.log('favorites');
+    console.log(this.state.favorites);
     return (
       <div>
         <form id="searchForm" onSubmit={(e) => this.handleSubmit(e)}>
@@ -102,19 +124,6 @@ class ItemObject extends React.Component {
     this.open = this.open.bind(this);
   }
 
-  componentDidMount() {
-    this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {
-      if(firebaseUser) { // there is a user logged in
-        firebase.database().ref('users/' + firebaseUser.uid + '/favorites').once('value')
-          .then((snapshot) => {
-            this.setState({favorites: snapshot.val()})
-          })
-          .catch(e => console.log(e))
-      }
-    });
-  }
-
-
   close() {
     this.setState({ showModal: false });
   }
@@ -125,26 +134,13 @@ class ItemObject extends React.Component {
 
   addToFavorites() {
     var userId = firebase.auth().currentUser.uid;
-    var favoritesArray = []; // intialize storage for all the favorite objects.
+    var currentItem = []; // intialize storage for all the favorite objects.
+    currentItem.push(this.props.item);
     var favoritesPath = 'users/' + userId + '/favorites';
-
-    // retrieve the values currently stored in favorites so you can update it
-    firebase.database().ref(favoritesPath).once('value')
-      .then((snapshot) => {
-        if(snapshot.val()) { // there are values contained in it
-          favoritesArray = snapshot.val(); // set it to those values.  Otherwise will remain blank and unitialized
-        } else { // no entries then need to initialize it
-          firebase.database().ref('users/' + userId).set({
-            favorites: []
-          });
-        }
-      })
-      .catch(e => console.log(e))
-    favoritesArray.push(this.props.item);
-
+    var newArray = this.props.favorites.concat(currentItem);
+    this.props.updateParent({favorites: newArray})
     // update the favorites
-    console.log(favoritesArray);
-    firebase.database().ref(favoritesPath).set(favoritesArray)
+    firebase.database().ref(favoritesPath).set(newArray)
       .then(()=>console.log('success!'))
       .catch(e => console.log(e));
     this.setState({clickable: false});
