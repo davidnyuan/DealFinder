@@ -6,7 +6,6 @@ import DataController from './DataController';
 
 class App extends React.Component {
   render() {
-    DataController.getAmazonData('hello');
     return (
       <div>
         <Navigation />
@@ -44,11 +43,12 @@ class Navigation extends React.Component {
           <NavItem onClick={()=>this.redirect('/signup')}>Sign Up</NavItem>
           <NavItem onClick={()=>this.redirect('/login')}>Login</NavItem>
           <NavItem onClick={()=>this.redirect('/search')}>Search</NavItem>
-          <NavItem onClick={()=>this.redirect('/account')}>Account Settings</NavItem>
+          <NavItem onClick={()=>this.redirect('/wishlist')}>Wishlist</NavItem>
         </Nav>
         <Nav pullRight>
           {user &&
             <NavDropdown title={user.displayName} id="basic-nav-dropdown">
+              <MenuItem onClick={()=>this.redirect('/account')}>Account Settings</MenuItem>
               <MenuItem onClick={()=>this.signOut()}>Sign Out</MenuItem>
             </NavDropdown>
           }
