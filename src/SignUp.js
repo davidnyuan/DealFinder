@@ -70,7 +70,7 @@ class SignUpForm extends React.Component {
         </Loader>
 
         <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
-
+          
           <EmailInput value={this.state.email.value} updateParent={this.updateState} submitted={this.state.submitted}/>
 
           <RequiredInput

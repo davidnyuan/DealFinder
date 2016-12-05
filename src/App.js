@@ -39,9 +39,13 @@ class Navigation extends React.Component {
             <a onClick={()=>this.redirect('/')}>Deal Finder</a>
           </Navbar.Brand>
         </Navbar.Header>
+        {!user &&
+          <Nav>
+            <NavItem onClick={()=>this.redirect('/signup')}>Sign Up</NavItem>
+            <NavItem onClick={()=>this.redirect('/login')}>Login</NavItem>
+          </Nav>
+        }
         <Nav>
-          <NavItem onClick={()=>this.redirect('/signup')}>Sign Up</NavItem>
-          <NavItem onClick={()=>this.redirect('/login')}>Login</NavItem>
           <NavItem onClick={()=>this.redirect('/search')}>Search</NavItem>
           <NavItem onClick={()=>this.redirect('/wishlist')}>Wishlist</NavItem>
           <NavItem onClick={()=>this.redirect('/favorites')}>Favorites</NavItem>

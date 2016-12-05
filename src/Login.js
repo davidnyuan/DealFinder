@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
       this.setState({loaded: false}); // show loading icon while signing in
       firebase.auth().signInWithEmailAndPassword(this.state.email.value, this.state.password.value)
       .then(() => this.setState({loaded: true}))
-      .then(() => hashHistory.push('/account'))
+      .then(() => hashHistory.push('/search'))
       .catch((e) => {
         this.setState({loaded: true})
         console.log(e.message)
