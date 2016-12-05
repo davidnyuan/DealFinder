@@ -31,7 +31,7 @@ class FavoritesPage extends React.Component {
     return (
       <div>
         <h2>Favorites Page</h2>
-        {dealObjects}
+        {dealObjects.length > 0 ? dealObjects : <p>Currently no items favorited</p>}
       </div>
     );
   }
