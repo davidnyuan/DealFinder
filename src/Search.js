@@ -11,7 +11,7 @@ class SearchPage extends React.Component {
       objects: []
     };
   }
-  
+
   sortItems(itemArray) {
     var selectedPriceDisc = document.querySelector('input[name = "priceVSdiscount"]:checked').value;
     var selectedOrder = document.querySelector('input[name = "ascVSdesc"]:checked').value;
@@ -44,7 +44,7 @@ class SearchPage extends React.Component {
     resultsArr.then((res) => {
       res.deals.forEach((deals) => {
         var deal = deals.deal;
-        objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage, 
+        objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
                           deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0]));
       objectArray = this.sortItems(objectArray);
       this.setState({objects: objectArray});
