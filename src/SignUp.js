@@ -10,10 +10,10 @@ class SignUpForm extends React.Component {
     this.state = { //track values and overall validity of each field
       email: {value:'',valid:false},
       name: {value:'',valid:false},
-      dob: {value:'',valid:false},
       password: {value:'',valid:false},
       passwordConf: {value:'',valid:false},
-      loaded: true
+      loaded: true,
+      submitted: false
     };
 
     this.updateState = this.updateState.bind(this);
@@ -27,8 +27,10 @@ class SignUpForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({loaded: false})
-    firebase.auth().createUserWithEmailAndPassword(this.state.email.value, this.state.password.value)
+    this.setState({submitted: true});
+    if(this.state.email.valid && this.state.name.valid && this.state.password.valid && this.state.passwordConf.valid) {
+      this.setState({loaded: false});
+      firebase.auth().createUserWithEmailAndPassword(this.state.email.value, this.state.password.value)
       .then((firebaseUser) => {
         //include information (for app-level content)
         var profilePromise = firebaseUser.updateProfile({
@@ -53,12 +55,12 @@ class SignUpForm extends React.Component {
         this.setState({loaded: true})
         console.log(e.message)
       });
-
+    }
   }
 
   render() {
     //if all fields are valid, button should be enabled
-    var buttonDisabled = !(this.state.email.valid && this.state.name.valid && this.state.password.valid && this.state.passwordConf.valid);
+    var buttonDisabled = this.state.submitted && !(this.state.email.valid && this.state.name.valid && this.state.password.valid && this.state.passwordConf.valid);
 
 
     return (
@@ -68,18 +70,20 @@ class SignUpForm extends React.Component {
 
         <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
 
-          <EmailInput value={this.state.email.value} updateParent={this.updateState} />
+          <EmailInput value={this.state.email.value} updateParent={this.updateState} submitted={this.state.submitted}/>
 
           <RequiredInput
             id="name" field="name" type="text"
             label="Name" placeholder="your name"
             errorMessage="we need to know your name"
             value={this.state.name.value}
-            updateParent={this.updateState} />
+            updateParent={this.updateState}
+            submitted={this.state.submitted}/>
 
-          <PasswordInput value={this.state.password.value} updateParent={this.updateState} />
+          <PasswordInput value={this.state.password.value} updateParent={this.updateState}
+            submitted={this.state.submitted} />
 
-          <PasswordConfirmationInput value={this.state.passwordConf.value} password={this.state.password.value} updateParent={this.updateState} />
+          <PasswordConfirmationInput value={this.state.passwordConf.value} password={this.state.password.value} updateParent={this.updateState} submitted={this.state.submitted} />
 
           <div className="form-group">
             <button id="submitButton" type="submit" className="btn btn-primary" disabled={buttonDisabled}>Sign Me Up!</button>
@@ -129,7 +133,7 @@ class EmailInput extends React.Component {
   render() {
     var errors = this.validate(this.props.value); //need to validate again, but at least isolated
     var inputStyle = 'form-group';
-    if(!errors.isValid) inputStyle += ' has-error'; //add styling rule
+    if(!errors.isValid && this.props.submitted) inputStyle += ' has-error'; //add styling rule
 
     return (
       <div className={inputStyle}>
@@ -138,10 +142,10 @@ class EmailInput extends React.Component {
                 value={this.props.value}
                 onChange={(e) => this.handleChange(e)}
         />
-        {errors.missing &&
+        {errors.missing && this.props.submitted &&
           <p className="help-block error-missing">we need to know your email address</p>
         }
-        {errors.invalidEmail &&
+        {errors.invalidEmail && this.props.submitted &&
           <p className="help-block error-invalid">this is not a valid email address</p>
         }
       </div>
@@ -179,19 +183,20 @@ class PasswordInput extends React.Component {
   render() {
     var errors = this.validate(this.props.value); //need to validate again, but at least isolated
     var inputStyle = 'form-group';
-    if(!errors.isValid) inputStyle += ' has-error';
+    if(!errors.isValid && this.props.submitted) inputStyle += ' has-error';
 
     return (
       <div className={inputStyle}>
-        <label htmlFor="passwordConf">Confirm Password</label>
-        <input type="password" id="passwordConf" name="passwordConf" className="form-control" placeholder="confirm password"
+        <label htmlFor="password">Password</label>
+        <input type="password" id="password" name="password" className="form-control" placeholder="your password"
                 value={this.props.value}
                 onChange={(e) => this.handleChange(e)}
         />
-        {errors.missing &&
+        {/* Dont want to show anything if hasn't been submitted yet */}
+        {errors.missing && this.props.submitted &&
           <p className="help-block error-missing">Password field cannot be blank</p>
         }
-        {errors.short &&
+        {errors.short && this.props.submitted &&
           <p className="help-block error-length">Password must be at least 6 characters</p>
         }
       </div>
@@ -236,7 +241,7 @@ class PasswordConfirmationInput extends React.Component {
   render() {
     var errors = this.validate(this.props.value); //need to validate again, but at least isolated
     var inputStyle = 'form-group';
-    if(!errors.isValid) inputStyle += ' has-error';
+    if(!errors.isValid && this.props.submitted) inputStyle += ' has-error';
 
     return (
       <div className={inputStyle}>
@@ -245,14 +250,14 @@ class PasswordConfirmationInput extends React.Component {
                 value={this.props.value}
                 onChange={(e) => this.handleChange(e)}
         />
-        {errors.missing &&
+        {errors.missing && this.props.submitted &&
           <p className="help-block error-missing">Neither password field can be blank</p>
         }
-        {errors.mismatched &&
+        {errors.mismatched && this.props.submitted &&
           <p className="help-block error-mismatched">Passwords do not match</p>
         }
 
-        {errors.short &&
+        {errors.short && this.props.submitted &&
           <p className="help-block error-length">Password must be at least 6 characters</p>
         }
 

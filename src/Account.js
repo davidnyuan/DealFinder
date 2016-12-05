@@ -5,12 +5,14 @@ import {hashHistory} from 'react-router';
 class AccountPage extends React.Component {
   componentDidMount() {
     this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {
-      if(!firebaseUser) {
+      if(!firebaseUser) { // not logged in then unregister the listener and redirect
         if(this.unregister) {
           this.unregister();
         }
         hashHistory.push('/login');
       }
+
+
     });
   }
 
