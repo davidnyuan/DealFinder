@@ -3,6 +3,7 @@ import DataController from './DataController.js';
 import dealObject from './dealObject.js';
 import {Button, Collapse, Modal} from 'react-bootstrap';
 import _ from 'lodash';
+import firebase from 'firebase';
 
 class SearchPage extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class SearchPage extends React.Component {
       objects: []
     };
   }
-
+  
   sortItems(itemArray) {
     var selectedPriceDisc = document.querySelector('input[name = "priceVSdiscount"]:checked').value;
     var selectedOrder = document.querySelector('input[name = "ascVSdesc"]:checked').value;
@@ -44,8 +45,8 @@ class SearchPage extends React.Component {
     resultsArr.then((res) => {
       res.deals.forEach((deals) => {
         var deal = deals.deal;
-        objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
-                          deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0]));
+        objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage, 
+                          deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at));
       objectArray = this.sortItems(objectArray);
       this.setState({objects: objectArray});
       });
@@ -57,7 +58,7 @@ class SearchPage extends React.Component {
     var dealObjects = this.state.objects.map((item, id) => {
       return (
         <ItemObject itemName={item.itemName} companyName={item.companyName} currentPrice={item.currentPrice} discount={item.discountRate}
-                    imageUrl={item.imageURL} websiteUrl={item.websiteURL} sourceName="Sqoot" key={id}/>
+                    imageUrl={item.imageURL} websiteUrl={item.websiteURL} createdAt={item.createdAt} sourceName="Sqoot" item={item} key={id}/>
       );
     });
 
@@ -73,11 +74,11 @@ class SearchPage extends React.Component {
         <Collapse id="filterOptions" in={this.state.open}>
           <div>
               <form id="priceVSdiscount">
-                <input type="radio" name="priceVSdiscount" value="price" defaultChecked={true}/>Price<br />
+                <input type="radio" name="priceVSdiscount" value="price" defaultChecked={true}/> Price<br />
                 <input type="radio" name="priceVSdiscount" value="discount" /> Discount<br />
               </form>
               <form id="ascVSdesc">
-                <input type="radio" name="ascVSdesc" value="ascending" defaultChecked={true}/>Ascending<br />
+                <input type="radio" name="ascVSdesc" value="ascending" defaultChecked={true}/> Ascending<br />
                 <input type="radio" name="ascVSdesc" value="descending" /> Descending<br />
               </form>
           </div>
@@ -95,7 +96,8 @@ class ItemObject extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false
+      showModal: false,
+      clickable: true
     }
     this.close = this.close.bind(this);
     this.open = this.open.bind(this);
@@ -107,6 +109,13 @@ class ItemObject extends React.Component {
 
   open() {
     this.setState({ showModal: true });
+  }
+
+  addToFavorites() {
+    var user = firebase.auth().currentUser;
+    var favoritesPath = firebase.database().ref(user.uid + "/favorites");
+    favoritesPath.push(this.props.item);
+    this.setState({clickable: false});
   }
 
   render() {
@@ -128,6 +137,7 @@ class ItemObject extends React.Component {
               <p className="itemDiscount">{Math.round(this.props.discount * 100)}% off </p>
             </Modal.Body>
             <Modal.Footer>
+              <Button onClick={()=>this.addToFavorites()} disabled={!this.state.clickable}>Add to Favorites</Button>
               <Button onClick={this.close}>Close</Button>
             </Modal.Footer>
           </Modal>
