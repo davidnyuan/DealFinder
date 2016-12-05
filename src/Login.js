@@ -3,6 +3,14 @@ import firebase from 'firebase';
 import {hashHistory} from 'react-router';
 import Loader from 'react-loader';
 
+class LoginPage extends React.Component {
+  render() {
+    return(
+      <LoginForm />
+    );
+  }
+}
+
 class LoginForm extends React.Component {
   constructor(props){
     super(props);
@@ -45,7 +53,6 @@ class LoginForm extends React.Component {
     var buttonDisabled = this.state.submitted && !(this.state.email.valid && this.state.password.valid);
     return (
       <div className="col-md-4 pull-right">
-        <img src="img/no-image-available.png" alt="no image available" />
         <Loader loaded={this.state.loaded}>
         </Loader>
         <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
@@ -123,5 +130,5 @@ class RequiredInput extends React.Component {
   }
 }
 
-export default LoginForm;
+export default LoginPage;
 export {RequiredInput};
