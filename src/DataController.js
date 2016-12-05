@@ -41,7 +41,7 @@ var DataController = {
     var result = "before";
     query = query.replace(" ", "%20");
     //sqoot
-    return fetch('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&online=true&query=' + query)
+    return fetch('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&per_page=100&online=true&query=' + query)
       .then((res) => {
           return res.json();
       });

@@ -116,7 +116,7 @@ class ItemObject extends React.Component {
           <p className="itemInfo">
             <span className="itemName">{this.props.itemName}</span> <br />
             <span className="itemPrice">${this.props.currentPrice} </span>
-            <span className="itemDiscount">{this.props.discount * 100}% off </span><br />
+            <span className="itemDiscount">{Math.round(this.props.discount * 100)}% off </span><br />
             Found via {this.props.sourceName}
           </p>
           <Modal show={this.state.showModal} onHide={this.close}>
