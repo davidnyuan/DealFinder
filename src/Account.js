@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
 import {hashHistory} from 'react-router';
-import {FormGroup, FormControl} from 'react-bootstrap';
+import {FormGroup, FormControl, Modal, Button} from 'react-bootstrap';
 
 
 class AccountPage extends React.Component {
@@ -11,6 +11,8 @@ class AccountPage extends React.Component {
         email:'',
         password:''
       }
+    this.newEmail = this.newEmail.bind(this); //bind for scope
+    this.changeEmail = this.changeEmail.bind(this);
     }
 
   componentDidMount() {
@@ -32,9 +34,28 @@ class AccountPage extends React.Component {
     this.setState({password: e.target.value})
   }
 
-  changeEmail() {
+  changeEmail(email) {
     var user = firebase.auth().currentUser;
-    user.updateEmail(this.email).then(() => hashHistory.push('/account'))
+    user.updateEmail(this.state.email).then(() => hashHistory.push('/account'))
+    const modalInstance = (
+      <div className="static-modal">
+        <Modal.Dialog>
+          <Modal.Header>
+            <Modal.Title>Modal title</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body>
+            One fine body...
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button>Close</Button>
+            <Button bsStyle="primary">Save changes</Button>
+          </Modal.Footer>
+
+        </Modal.Dialog>
+      </div>
+    );
   }
 
   render() {
@@ -52,7 +73,7 @@ class AccountPage extends React.Component {
               onChange={this.newEmail.bind(this)}
             />
           <div>
-            <button type="button" onClick={this.changeEmail} data-toggle="modal" data-target="#emailModal">Change email!</button>
+            <button type="button" onClick={this.changeEmail}>Change email!</button>
           </div>
           </FormGroup>
           <FormGroup>
