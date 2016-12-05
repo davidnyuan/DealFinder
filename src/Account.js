@@ -11,8 +11,6 @@ class AccountPage extends React.Component {
         }
         hashHistory.push('/login');
       }
-
-
     });
   }
 
