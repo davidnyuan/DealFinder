@@ -66,7 +66,7 @@ class SearchPage extends React.Component {
       res.deals.forEach((deals) => {
         var deal = deals.deal;
         objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
-                          deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at));
+                          deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at, deal.expires_at));
       objectArray = this.sortItems(objectArray);
       this.setState({objects: objectArray});
       });
