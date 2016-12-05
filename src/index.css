@@ -21,7 +21,9 @@ body {
 .item {
   flex-basis: 40%;
   margin: 10px;
+
 }
+
 
 .itemDiscount {
   font-weight: bold;

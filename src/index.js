@@ -7,6 +7,7 @@ import SearchPage from './Search';
 import AccountPage from './Account';
 import SignUpPage from './SignUp';
 import WishlistPage from './Wishlist';
+import FavoritesPage from './Favorites';
 
 import firebase from 'firebase';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router'
@@ -22,6 +23,7 @@ firebase.initializeApp(config);
 
 //load our CSS files
 import 'bootstrap/dist/css/bootstrap.css';
+import 'hover.css/css/hover-min.css';
 import './index.css';
 
 ReactDOM.render(
@@ -33,6 +35,7 @@ ReactDOM.render(
        <Route path="account" component={AccountPage} />
        <Route path="signup" component={SignUpPage} />
        <Route path="wishlist" component={WishlistPage} />
+       <Route path="favorites" component={FavoritesPage} />
      </Route>
   </Router>,
   document.getElementById('root')

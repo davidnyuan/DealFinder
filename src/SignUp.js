@@ -35,6 +35,7 @@ class SignUpForm extends React.Component {
         //include information (for app-level content)
         var profilePromise = firebaseUser.updateProfile({
           displayName: this.state.name.value,
+          favorites: []
         });
 
         //create new entry in the Cloud DB (for others to reference)

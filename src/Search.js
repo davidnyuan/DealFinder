@@ -57,8 +57,7 @@ class SearchPage extends React.Component {
     //Map all objects in state to ItemObject components
     var dealObjects = this.state.objects.map((item, id) => {
       return (
-        <ItemObject itemName={item.itemName} companyName={item.companyName} currentPrice={item.currentPrice} discount={item.discountRate}
-                    imageUrl={item.imageURL} websiteUrl={item.websiteURL} createdAt={item.createdAt} sourceName="Sqoot" item={item} key={id}/>
+        <ItemObject sourceName="Sqoot" item={item} key={id} add={true} />
       );
     });
 
@@ -97,11 +96,24 @@ class ItemObject extends React.Component {
     super(props);
     this.state = {
       showModal: false,
-      clickable: true
+      clickable: true,
     }
     this.close = this.close.bind(this);
     this.open = this.open.bind(this);
   }
+
+  componentDidMount() {
+    this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {
+      if(firebaseUser) { // there is a user logged in
+        firebase.database().ref('users/' + firebaseUser.uid + '/favorites').once('value')
+          .then((snapshot) => {
+            this.setState({favorites: snapshot.val()})
+          })
+          .catch(e => console.log(e))
+      }
+    });
+  }
+
 
   close() {
     this.setState({ showModal: false });
@@ -121,42 +133,55 @@ class ItemObject extends React.Component {
       .then((snapshot) => {
         if(snapshot.val()) { // there are values contained in it
           favoritesArray = snapshot.val(); // set it to those values.  Otherwise will remain blank and unitialized
+        } else { // no entries then need to initialize it
+          firebase.database().ref('users/' + userId).set({
+            favorites: []
+          });
         }
       })
       .catch(e => console.log(e))
     favoritesArray.push(this.props.item);
 
     // update the favorites
-    var updates = {};
-    updates[favoritesPath] = favoritesArray;
-    firebase.database().ref().update(updates)
-      .then(() => console.log('success'))
-      .catch(e => console.log(e))
+    console.log(favoritesArray);
+    firebase.database().ref(favoritesPath).set(favoritesArray)
+      .then(()=>console.log('success!'))
+      .catch(e => console.log(e));
     this.setState({clickable: false});
   }
 
   // TODO: MAKE THE FAVORITES BUTTON ONLY USEABLE WHEN LOGGED IN
   render() {
     return (
-        <div className="item" role="button" onClick={this.open}>
-          <img className="itemImg" src={this.props.imageUrl} alt={this.props.itemName}/>
+        <div className="item hvr-grow well" role="button" onClick={this.open}>
+          <img className="itemImg" src={this.props.item.imageURL} alt={this.props.item.itemName}/>
           <p className="itemInfo">
-            <span className="itemName">{this.props.itemName}</span> <br />
-            <span className="itemPrice">${this.props.currentPrice} </span>
-            <span className="itemDiscount">{Math.round(this.props.discount * 100)}% off </span><br />
+            <span className="itemName">{this.props.item.itemName}</span> <br />
+            <span className="itemPrice">${this.props.item.currentPrice} </span>
+            <span className="itemDiscount">{Math.round(this.props.item.discountRate * 100)}% off </span><br />
             Found via {this.props.sourceName}
           </p>
           <Modal show={this.state.showModal} onHide={this.close}>
             <Modal.Header closeButton>
-              <Modal.Title>{this.props.itemName}</Modal.Title>
+              <Modal.Title>{this.props.item.itemName}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <p className="itemPrice">${this.props.currentPrice} </p>
-              <p className="itemDiscount">{Math.round(this.props.discount * 100)}% off </p>
+              <img className="rounded mx-auto d-block" src={this.props.item.imageURL} alt={this.props.item.itemName} />
+              <p className="itemPrice">${this.props.item.currentPrice} </p>
+              <p className="itemDiscount">{Math.round(this.props.item.discountRate * 100)}% off </p>
+              <a href={this.props.item.websiteURL}>Go to website</a>
             </Modal.Body>
             <Modal.Footer>
               {/*Dont want it clickable if it's already been clicked once or there is currently no user*/}
-              <Button onClick={()=>this.addToFavorites()} disabled={!this.state.clickable || !firebase.auth().currentUser}>Add to Favorites</Button>
+              {this.props.add &&
+                <Button
+                  onClick={()=>this.addToFavorites()}
+                  disabled={!this.state.clickable || !firebase.auth().currentUser}
+                  className="pull-left"
+                >
+                  {this.state.clickable ? 'Add to Favorites' : 'Favorited!'}
+                </Button>
+              }
               <Button onClick={this.close}>Close</Button>
             </Modal.Footer>
           </Modal>
@@ -165,3 +190,4 @@ class ItemObject extends React.Component {
   }
 }
 export default SearchPage;
+export {ItemObject};
