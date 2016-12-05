@@ -12,12 +12,12 @@ class SearchPage extends React.Component {
       objects: []
     };
   }
-  
+
   sortItems(itemArray) {
     var selectedPriceDisc = document.querySelector('input[name = "priceVSdiscount"]:checked').value;
     var selectedOrder = document.querySelector('input[name = "ascVSdesc"]:checked').value;
     //Sort by price.
-    if(selectedPriceDisc == "price") {
+    if(selectedPriceDisc === "price") {
       //Sort by price ascending.
       if(selectedOrder === "ascending") {
         return _.sortBy(itemArray, [(obj) => {return obj.currentPrice}])
@@ -31,7 +31,7 @@ class SearchPage extends React.Component {
       if(selectedOrder === "ascending") {
         return _.sortBy(itemArray, [(obj) => {return obj.discountRate}])
       } else { //Sort by discount descending.
-        var newArr = _.sortBy(itemArray, [(obj) => {return obj.discountRate}]);
+        newArr = _.sortBy(itemArray, [(obj) => {return obj.discountRate}]);
         return newArr.reverse();
       }
     }
@@ -45,7 +45,7 @@ class SearchPage extends React.Component {
     resultsArr.then((res) => {
       res.deals.forEach((deals) => {
         var deal = deals.deal;
-        objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage, 
+        objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
                           deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at));
       objectArray = this.sortItems(objectArray);
       this.setState({objects: objectArray});
@@ -112,12 +112,30 @@ class ItemObject extends React.Component {
   }
 
   addToFavorites() {
-    var user = firebase.auth().currentUser;
-    var favoritesPath = firebase.database().ref(user.uid + "/favorites");
-    favoritesPath.push(this.props.item);
+    var userId = firebase.auth().currentUser.uid;
+    var favoritesArray = []; // intialize storage for all the favorite objects.
+    var favoritesPath = 'users/' + userId + '/favorites';
+
+    // retrieve the values currently stored in favorites so you can update it
+    firebase.database().ref(favoritesPath).once('value')
+      .then((snapshot) => {
+        if(snapshot.val()) { // there are values contained in it
+          favoritesArray = snapshot.val(); // set it to those values.  Otherwise will remain blank and unitialized
+        }
+      })
+      .catch(e => console.log(e))
+    favoritesArray.push(this.props.item);
+
+    // update the favorites
+    var updates = {};
+    updates[favoritesPath] = favoritesArray;
+    firebase.database().ref().update(updates)
+      .then(() => console.log('success'))
+      .catch(e => console.log(e))
     this.setState({clickable: false});
   }
 
+  // TODO: MAKE THE FAVORITES BUTTON ONLY USEABLE WHEN LOGGED IN
   render() {
     return (
         <div className="item" role="button" onClick={this.open}>
@@ -137,7 +155,8 @@ class ItemObject extends React.Component {
               <p className="itemDiscount">{Math.round(this.props.discount * 100)}% off </p>
             </Modal.Body>
             <Modal.Footer>
-              <Button onClick={()=>this.addToFavorites()} disabled={!this.state.clickable}>Add to Favorites</Button>
+              {/*Dont want it clickable if it's already been clicked once or there is currently no user*/}
+              <Button onClick={()=>this.addToFavorites()} disabled={!this.state.clickable || !firebase.auth().currentUser}>Add to Favorites</Button>
               <Button onClick={this.close}>Close</Button>
             </Modal.Footer>
           </Modal>

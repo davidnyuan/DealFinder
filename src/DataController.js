@@ -1,4 +1,3 @@
-import dealObject from './dealObject.js';
 import 'whatwg-fetch'; //for polyfill
 import CryptoJS from 'crypto-js';
 
@@ -13,10 +12,9 @@ var DataController = {
     var params = {
       "Service": "AWSECommerceService",
       "Operation": "ItemSearch",
-      "AWSAccessKeyId": "AKIAJH52CXHDZPFFKDAA",
+      "AWSAccessKeyId": aws_access_key_id,
       "AssociateTag": "de032a-20",
       "SearchIndex": "All",
-      "Keywords": "phone battery",
       "Keywords": searchQuery,
       "ResponseGroup": "Offers",
       "Timestamp": timestamp
@@ -37,15 +35,13 @@ var DataController = {
   },
 
   grabData: function (query) {
-    var objectArray = [];
-    var result = "before";
     query = query.replace(" ", "%20");
     //sqoot
     return fetch('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&per_page=100&online=true&query=' + query)
       .then((res) => {
           return res.json();
       });
-    
+
     //amazon
     // fetch('http://webservices.amazon.com/onca/xml?AWSAccessKeyId=AKIAJH52CXHDZPFFKDAA&AssociateTag=de032a-20&Keywords=' + query + '&Operation=ItemSearch&ResponseGroup=Offers&SearchIndex=All&Service=AWSECommerceService&Timestamp=' + expTimeStr + 'Z&Signature=zcfBqz853QbywCGQCcuPQ54CLgxthzp2VBJLbGStx3k%3D')
     // .then((res) => { //parse through xml file

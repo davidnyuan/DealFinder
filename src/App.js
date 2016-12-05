@@ -2,7 +2,7 @@ import React from 'react';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
 import {hashHistory} from 'react-router';
 import firebase from 'firebase';
-import DataController from './DataController';
+// import DataController from './DataController';
 
 class App extends React.Component {
   render() {
