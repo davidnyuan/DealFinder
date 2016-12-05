@@ -2,6 +2,7 @@ import React from 'react';
 import DataController from './DataController.js';
 import dealObject from './dealObject.js';
 import {Button, Collapse, Modal} from 'react-bootstrap';
+import _ from 'lodash';
 
 class SearchPage extends React.Component {
   constructor(props) {
@@ -9,6 +10,30 @@ class SearchPage extends React.Component {
     this.state = {
       objects: []
     };
+  }
+  
+  sortItems(itemArray) {
+    var selectedPriceDisc = document.querySelector('input[name = "priceVSdiscount"]:checked').value;
+    var selectedOrder = document.querySelector('input[name = "ascVSdesc"]:checked').value;
+    //Sort by price.
+    if(selectedPriceDisc == "price") {
+      //Sort by price ascending.
+      if(selectedOrder === "ascending") {
+        return _.sortBy(itemArray, [(obj) => {return obj.currentPrice}])
+      } else { //Sort by price descending.
+        var newArr = _.sortBy(itemArray, [(obj) => {return obj.currentPrice}]);
+        return newArr.reverse();
+      }
+    } else {
+      //Sort by discount.
+        //Sort by discount ascending.
+      if(selectedOrder === "ascending") {
+        return _.sortBy(itemArray, [(obj) => {return obj.discountRate}])
+      } else { //Sort by discount descending.
+        var newArr = _.sortBy(itemArray, [(obj) => {return obj.discountRate}]);
+        return newArr.reverse();
+      }
+    }
   }
 
   handleSubmit(event) {
@@ -19,10 +44,12 @@ class SearchPage extends React.Component {
     resultsArr.then((res) => {
       res.deals.forEach((deals) => {
         var deal = deals.deal;
-        objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage, deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0]));
-      })
+        objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage, 
+                          deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0]));
+      objectArray = this.sortItems(objectArray);
       this.setState({objects: objectArray});
-    });
+      });
+    })
   }
 
   render() {
@@ -37,7 +64,7 @@ class SearchPage extends React.Component {
     return (
       <div>
         <form id="searchForm" onSubmit={(e) => this.handleSubmit(e)}>
-          <input id="queryInput" type="text" /><input type="submit" />
+          <input id="queryInput" type="text" /><input type="submit" value="Search"/>
         </form>
 
         <Button id="filterButton" onClick={ ()=> this.setState({ open: !this.state.open })}>
@@ -45,13 +72,13 @@ class SearchPage extends React.Component {
         </Button>
         <Collapse id="filterOptions" in={this.state.open}>
           <div>
-              <form>
-                <input type="radio" name="filterOp" value="price" />Price<br />
-                <input type="radio" name="filterOp" value="discount" /> Discount<br />
+              <form id="priceVSdiscount">
+                <input type="radio" name="priceVSdiscount" value="price" defaultChecked={true}/>Price<br />
+                <input type="radio" name="priceVSdiscount" value="discount" /> Discount<br />
               </form>
-              <form>
-                <input type="radio" name="filterOp" value="ascending" />Ascending<br />
-                <input type="radio" name="filterOp" value="descending" /> Descending<br />
+              <form id="ascVSdesc">
+                <input type="radio" name="ascVSdesc" value="ascending" defaultChecked={true}/>Ascending<br />
+                <input type="radio" name="ascVSdesc" value="descending" /> Descending<br />
               </form>
           </div>
         </Collapse>
@@ -89,7 +116,7 @@ class ItemObject extends React.Component {
           <p className="itemInfo">
             <span className="itemName">{this.props.itemName}</span> <br />
             <span className="itemPrice">${this.props.currentPrice} </span>
-            <span className="itemDiscount">{this.props.discount * 100}% off </span><br />
+            <span className="itemDiscount">{Math.round(this.props.discount * 100)}% off </span><br />
             Found via {this.props.sourceName}
           </p>
           <Modal show={this.state.showModal} onHide={this.close}>
@@ -98,7 +125,7 @@ class ItemObject extends React.Component {
             </Modal.Header>
             <Modal.Body>
               <p className="itemPrice">${this.props.currentPrice} </p>
-              <p className="itemDiscount">{this.props.discount * 100}% off </p>
+              <p className="itemDiscount">{Math.round(this.props.discount * 100)}% off </p>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.close}>Close</Button>
