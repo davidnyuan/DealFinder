@@ -13,12 +13,18 @@ class SearchPage extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    var controller = new DataController();
-    console.log("Submitted!");
-    var resultsArr = controller.grabData('headphones');
-    // var resultsArr = controller.getDummy();
-    console.log(resultsArr);
-    // this.setState({objects: resultsArr});
+    var query = document.querySelector("#queryInput").value;
+    var objectArray = [];
+    var resultsArr = DataController.grabData(query)
+    resultsArr.then((res) => {
+      res.deals.forEach((deals) => {
+        var deal = deals.deal;
+        console.log(deal.image_url);
+        console.log(deal.untracked_url);
+        objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage, deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0]));
+      })
+      this.setState({objects: objectArray});
+    });
   }
 
   render() {
@@ -33,7 +39,7 @@ class SearchPage extends React.Component {
     return (
       <div>
         <form id="searchForm" onSubmit={(e) => this.handleSubmit(e)}>
-          <input type="text" /><input type="submit" />
+          <input id="queryInput" type="text" /><input type="submit" />
         </form>
 
         <Button id="filterButton" onClick={ ()=> this.setState({ open: !this.state.open })}>
@@ -53,22 +59,7 @@ class SearchPage extends React.Component {
         </Collapse>
 
         <div id="searchResults">
-        {dealObjects}
-        {/*<ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
-                    imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
-        <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
-                    imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
-        <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
-                    imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
-        <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
-                    imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
-        <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
-                    imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
-        <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
-                    imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
-        <ItemObject itemName="Google" companyName="company" currentPrice="$40.00" discount="40%"
-                    imageUrl="defaultImg.png" websiteUrl="https://www.google.com/" sourceName="Sqoot" />
-                    */}
+         {dealObjects}
         </div>
       </div>
     );
@@ -85,8 +76,8 @@ class ItemObject extends React.Component {
         <a href={this.props.websiteUrl}><img className="itemImg" src={this.props.imageUrl} alt={this.props.itemName}/></a>
         <p className="itemInfo">
           <span className="itemName">{this.props.itemName}</span> <br />
-          <span className="itemPrice">{this.props.currentPrice} </span>
-          <span className="itemDiscount">{this.props.discount} off </span><br />
+          <span className="itemPrice">${this.props.currentPrice} </span>
+          <span className="itemDiscount">{this.props.discount * 100}% off </span><br />
           Found via {this.props.sourceName}
         </p>
       </div>
