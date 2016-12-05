@@ -165,7 +165,7 @@ class ItemObject extends React.Component {
               <img className="rounded mx-auto d-block" src={this.props.item.imageURL} alt={this.props.item.itemName} />
               <p className="itemPrice">${this.props.item.currentPrice} </p>
               <p className="itemDiscount">{Math.round(this.props.item.discountRate * 100)}% off </p>
-              <a href={this.props.item.websiteURL}>Go to website</a>
+              <a href={this.props.item.websiteURL} target="_blank">Go to website</a>
             </Modal.Body>
             <Modal.Footer>
               {/*Dont want it clickable if it's already been clicked once or there is currently no user*/}
