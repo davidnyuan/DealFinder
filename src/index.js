@@ -6,6 +6,7 @@ import LoginPage from './Login';
 import SearchPage from './Search';
 import AccountPage from './Account';
 import SignUpPage from './SignUp';
+import WishlistPage from './Wishlist';
 
 import firebase from 'firebase';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router'
@@ -31,6 +32,7 @@ ReactDOM.render(
        <Route path="search" component={SearchPage} />
        <Route path="account" component={AccountPage} />
        <Route path="signup" component={SignUpPage} />
+       <Route path="wishlist" component={WishlistPage} />
      </Route>
   </Router>,
   document.getElementById('root')
