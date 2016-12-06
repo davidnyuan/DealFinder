@@ -4,13 +4,14 @@ import dealObject from './dealObject.js';
 import { Button, Collapse, Modal } from 'react-bootstrap';
 import _ from 'lodash';
 import firebase from 'firebase';
-import moment from 'moment';
+import Loader from 'react-loader';
 
 class SearchPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       objects: [],
+      loaded: true,
       favorites: []
     };
     this.updateParent = this.updateParent.bind(this);
@@ -62,14 +63,15 @@ class SearchPage extends React.Component {
     event.preventDefault();
     var query = document.querySelector("#queryInput").value;
     var objectArray = [];
-    var resultsArr = DataController.grabData(query)
+    this.setState({ loaded: false });
+    var resultsArr = DataController.grabData(query);
     resultsArr.then((res) => {
       res.deals.forEach((deals) => {
         var deal = deals.deal;
         objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
           deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at, deal.expires_at));
         objectArray = this.sortItems(objectArray);
-        this.setState({ objects: objectArray });
+        this.setState({ objects: objectArray, loaded: true });
       });
     })
   }
@@ -82,10 +84,11 @@ class SearchPage extends React.Component {
       );
     });
 
-    console.log('favorites');
-    console.log(this.state.favorites);
     return (
       <div>
+        <Loader loaded={this.state.loaded}>
+        </Loader>
+
         <form id="searchForm" onSubmit={(e) => this.handleSubmit(e)}>
           <input id="queryInput" type="text" /><input type="submit" value="Search" />
         </form>
@@ -135,8 +138,7 @@ class ItemObject extends React.Component {
 
   addToFavorites() {
     var userId = firebase.auth().currentUser.uid;
-    var currentItem = []; // intialize storage for all the favorite objects.
-    currentItem.push(this.props.item);
+    var currentItem = [this.props.item]; // intialize storage for all the favorite objects.
     var favoritesPath = 'users/' + userId + '/favorites';
     var newArray = this.props.favorites.concat(currentItem);
     this.props.updateParent({ favorites: newArray })
@@ -225,15 +227,15 @@ class Timer extends React.Component {
     total = Math.floor(total % 60);
     if (years > 0) {
       return (
-        <div className="timeRemaining">Time left: {years} years, {months} months, {days} days, {hours} hours, {minutes} minutes, and {total} seconds</div>
+        <div className="timeRemaining">Time left: {years}years, {months}months, {days}days, {hours}hours, {minutes}minutes, and {total}seconds</div>
       );
     } else if (months > 0) {
       return (
-        <div className="timeRemaining">Time left: {months} months, {days} days, {hours} hours, {minutes} minutes, and {total} seconds</div>
+        <div className="timeRemaining">Time left: {months}months, {days}days, {hours}hours, {minutes}minutes, and {total}seconds</div>
       );
     } else {
       return (
-        <div className="timeRemaining">Time left: {days} days, {hours} hours, {minutes} minutes, and {total} seconds</div>
+        <div className="timeRemaining">Time left: {days}days, {hours}hours, {minutes}minutes, and {total}seconds</div>
       );
     }
   }
