@@ -3,7 +3,6 @@ import firebase from 'firebase';
 import {hashHistory} from 'react-router';
 import {FormGroup, FormControl, Modal, Button} from 'react-bootstrap';
 
-
 class AccountPage extends React.Component {
     constructor(props) {
       super(props);
