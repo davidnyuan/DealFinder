@@ -5,7 +5,7 @@ class AboutUs extends React.Component {
     return (
       <div>
         <div role="heading">
-          <h2>About Us</h2>
+          <h2 className= "text-center section-header">About Us</h2>
         </div>
         <div>
           <h3 className="h3 text-center section-header">Why DealFinder?</h3>
