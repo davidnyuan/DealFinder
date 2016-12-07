@@ -23,8 +23,7 @@ class SignUpForm extends React.Component {
       password: {value:'',valid:false},
       passwordConf: {value:'',valid:false},
       loaded: true,
-      submitted: false,
-      error: ''
+      submitted: false
     };
 
     this.updateState = this.updateState.bind(this);
@@ -36,13 +35,11 @@ class SignUpForm extends React.Component {
     this.setState(stateChange);
   }
 
-  // called when submit button is clicked
-  // creates a new firebase user with the inputted information
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({submitted: true, error:''}); // make it so button cant be clicked again and error message disappears
+    this.setState({submitted: true});
     if(this.state.email.valid && this.state.name.valid && this.state.password.valid && this.state.passwordConf.valid) {
-      this.setState({loaded: false}); // start the loader animation
+      this.setState({loaded: false});
       firebase.auth().createUserWithEmailAndPassword(this.state.email.value, this.state.password.value)
       .then((firebaseUser) => {
         //include information (for app-level content)
@@ -58,12 +55,15 @@ class SignUpForm extends React.Component {
         }
         var userPromise = userRef.set(userData); //update entry in JOITC, return promise for chaining
 
-        return Promise.all([profilePromise, userPromise]); // for further chaining.
+        var emailPromise = firebaseUser.sendEmailVerification()
+
+        return Promise.all([profilePromise, userPromise, emailPromise]);
+
       })
       .then(() => {this.setState({loaded: true})})
-      .then(() => hashHistory.push('/account')) // redirect to a different page after signing in
+      .then(() => hashHistory.push('/account'))
       .catch((e) => {
-        this.setState({loaded: true, error:e.message}) // display the error message
+        this.setState({loaded: true})
         console.log(e.message)
       });
     }
@@ -85,9 +85,6 @@ class SignUpForm extends React.Component {
         </div>
         <hr />
 
-        {this.state.error &&
-          <div className="alert alert-danger">{this.state.error}</div>
-        }
         <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
 
           <EmailInput value={this.state.email.value} updateParent={this.updateState} submitted={this.state.submitted}/>

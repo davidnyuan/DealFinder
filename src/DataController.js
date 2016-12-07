@@ -34,28 +34,14 @@ var DataController = {
       .catch(e => console.log(e));
   },
 
-  grabData: function (query) {
+  grabData: function (query, perPage) {
     query = query.replace(" ", "%20");
     //sqoot
-    return fetch('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&per_page=100&online=true&query=' + query)
+    return fetch('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&per_page=' + perPage + '&online=true&query=' + query)
       .then((res) => {
+          
           return res.json();
       });
-  },
-
-  getDummy: function () {
-        console.log("Dummy received");
-        var dummyObject = [{
-            itemName: 'item',
-            companyName: 'company',
-            currentPrice: 'currPrice',
-            discountRate: 'discRate',
-            originalPrice: 'origPrice',
-            imageURL: 'defaultImg.png',
-            websiteURL: 'https://www.google.com/',
-            sellerCompany: 'company'
-        }]
-        return dummyObject;
   },
 
   // THIS ONE ALSO DOESNT WORK
