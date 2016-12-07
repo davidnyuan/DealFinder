@@ -1,15 +1,15 @@
 import React from 'react';
 import firebase from 'firebase';
-import {hashHistory} from 'react-router';
 import DataController from './DataController.js';
 import ItemObject from './itemObject.js';
 import dealObject from './dealObject.js';
+import Loader from 'react-loader';
 
 class WishlistPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      wishlist: []
+      wishlist: [],
     }
   }
 
@@ -20,20 +20,19 @@ class WishlistPage extends React.Component {
           .then((snapshot) => {
             this.setState({wishlist: snapshot.val()})
           })
-          .catch(e => console.log(e))
+          .catch(e => console.log(e));
       }
     });
   }
 
   addToWishList() {
     var wish = document.querySelector("#queryInput").value;
-    var wishArr = firebase.auth().currentUser.wishlist;
     var userID = firebase.auth().currentUser.uid;
     var wishlistPath = 'users/' + userID + '/wishlist';
     if(this.state.wishlist != null) {
       var newWishArr = this.state.wishlist.concat(wish);
     } else {
-      var newWishArr = [];
+      newWishArr = [];
       newWishArr.push(wish);
     }
     firebase.database().ref(wishlistPath).set(newWishArr)
@@ -51,14 +50,14 @@ class WishlistPage extends React.Component {
   render() {
     if(this.state.wishlist != null) {
       var renderedWishList = this.state.wishlist.map((wish) => {
-        return ( 
-        <div> 
+        return (
+        <div>
           <h3> {wish.charAt(0).toUpperCase() + wish.slice(1)}: </h3>
           <WishlistItem item={wish} />
         </div> );
       })
     } else {
-      renderedWishList = 
+      renderedWishList =
         <p id="wishlistEmptyMsg" className="well"> No items? No problem! Just go ahead and add something with the search bar above. </p>
     }
 
@@ -85,7 +84,8 @@ class WishlistItem extends React.Component {
     super(props);
     this.state = {
       itemset: [],
-      favorites: []
+      favorites: [],
+      loaded: true
     };
     this.updateParent = this.updateParent.bind(this);
   }
@@ -105,20 +105,21 @@ class WishlistItem extends React.Component {
 
     var resultsArr = DataController.grabData(this.props.item, 4);
     var objectArray = [];
+    this.setState({loaded: false});
     resultsArr.then((res) => {
       res.deals.forEach((deals) => {
         var deal = deals.deal;
         objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
                   deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at, deal.expires_at));
-        this.setState({itemset: objectArray, favorites: this.state.favorites});
       })
+      this.setState({itemset: objectArray, favorites: this.state.favorites, loaded: true});
     })
   }
 
   updateParent(input) {
     this.setState(input);
   }
-  
+
   render() {
     var dealObjects = this.state.itemset.map((item, id) => {
       return (
@@ -135,9 +136,13 @@ class WishlistItem extends React.Component {
       );
     });
     return(
-      <span className="wishlistResults"> {dealObjects} </span>
+      <div>
+        <Loader loaded={this.state.loaded}>
+        </Loader>
+        <div className="wishlistResults"> {dealObjects} </div>
+      </div>
     )
-    
+
   }
 }
 
