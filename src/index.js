@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import './login.css'
 import './index.css';
 import LoginPage from './Login';
 import SearchPage from './Search';
