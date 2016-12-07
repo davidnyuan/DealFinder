@@ -4,7 +4,7 @@ import dealObject from './dealObject.js';
 import { Button, Collapse } from 'react-bootstrap';
 import _ from 'lodash';
 import firebase from 'firebase';
-import ItemObject from './ItemObject.js';
+import ItemObject from './itemObject.js';
 import Loader from 'react-loader';
 
 class SearchPage extends React.Component {

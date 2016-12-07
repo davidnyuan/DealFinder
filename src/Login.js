@@ -20,7 +20,8 @@ class LoginForm extends React.Component {
       email: {value:'',valid:false},
       password: {value:'',valid:false},
       submitted: false,
-      loaded: true
+      loaded: true,
+      error: ''
     };
 
     this.updateState = this.updateState.bind(this); //bind for scope
@@ -32,17 +33,18 @@ class LoginForm extends React.Component {
     this.setState(stateChange);
   }
 
+  // called when submit button is clicked
+  // creates a new firebase user with the inputted information
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({submitted: true});
-    console.log(this.state.submitted);
+    this.setState({submitted: true, error:''}); // make it so button cant be clicked again and error message disappears
     if(this.state.email.valid && this.state.password.valid) { // dont want to do anything if invalid
-      this.setState({loaded: false}); // show loading icon while signing in
+      this.setState({loaded: false}); // start the loader animation
       firebase.auth().signInWithEmailAndPassword(this.state.email.value, this.state.password.value)
       .then(() => this.setState({loaded: true}))
       .then(() => hashHistory.push('/search'))
       .catch((e) => {
-        this.setState({loaded: true})
+        this.setState({loaded: true, error: e.message})
         console.log(e.message)
       });
     }
@@ -62,6 +64,10 @@ class LoginForm extends React.Component {
           <h2>Sign In</h2>
         </div>
         <hr />
+
+        {this.state.error &&
+          <div className="alert alert-danger">{this.state.error}</div>
+        }
 
         <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
 
