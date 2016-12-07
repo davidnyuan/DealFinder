@@ -64,10 +64,10 @@ class WishlistPage extends React.Component {
         <form id="wishForm" onSubmit={(e) => this.handleSubmit(e)}>
           <input id="queryInput" type="text" /><input type="submit" value="Add to List"/>
         </form>
-        <p>
+        <div>
           Wishlist: <br />
            {renderedWishlist}
-        </p>
+        </div>
       </div>
     );
   }
