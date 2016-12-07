@@ -2,7 +2,7 @@ import React from 'react';
 import firebase from 'firebase';
 import {hashHistory} from 'react-router';
 import DataController from './DataController.js';
-import ItemObject from './ItemObject.js';
+import ItemObject from './itemObject.js';
 import dealObject from './dealObject.js';
 
 class WishlistPage extends React.Component {
