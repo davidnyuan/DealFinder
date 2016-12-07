@@ -21,7 +21,8 @@ body {
 .item {
   flex-basis: 40%;
   margin: 10px;
-
+  max-width: 40%;
+  overflow: hidden;
 }
 
 
@@ -33,6 +34,7 @@ body {
   float: left;
   min-height: 150px;
   max-height: 150px;
+  max-width: 85%;
 }
 
 .itemInfo {
