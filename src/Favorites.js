@@ -1,8 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
 import {hashHistory} from 'react-router';
-import {ItemObject, Timer} from './ItemObjectPlusTimer.js';
-import DataController from './DataController.js';
+import ItemObject from './ItemObject';
 
 class FavoritesPage extends React.Component {
   constructor(props) {

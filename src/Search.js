@@ -1,9 +1,10 @@
 import React from 'react';
 import DataController from './DataController.js';
 import dealObject from './dealObject.js';
-import { Button, Collapse, Modal } from 'react-bootstrap';
+import { Button, Collapse } from 'react-bootstrap';
 import _ from 'lodash';
 import firebase from 'firebase';
+import ItemObject from './itemObject.js';
 import Loader from 'react-loader';
 
 class SearchPage extends React.Component {
