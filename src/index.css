@@ -57,9 +57,29 @@ body {
   margin-left: 10px;
 }
 
-#searchResults {
+#searchResults, .wishlistResults {
   display: flex;
   flex-wrap: wrap;
+}
+
+#wishlistEmptyMsg {
+  font-size: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  text-align: center;
+  width: 50%;
+}
+
+.wishItemContainer h3 {
+  display: inline-block;
+}
+
+.wishRemove {
+  float: right;
+  font-size: 2em;
+  margin-right: 10%;
+  margin-top: 10px;
 }
 
 #loginPage {
@@ -82,7 +102,7 @@ label {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-family: 'Slabo 27px', Helvetica, Arial, sans-serif;
   font-size: 10rem;
-}
+}}
 
 .signinPage{
   background: rgba(19, 35, 47, 0.9);
