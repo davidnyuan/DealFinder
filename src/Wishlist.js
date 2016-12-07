@@ -10,10 +10,6 @@ class WishlistPage extends React.Component {
     };
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-  }
-
   componentDidMount() {
     this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {
       if(firebaseUser) { // there is a user logged in
@@ -43,34 +39,31 @@ class WishlistPage extends React.Component {
     this.addToWishList();
   }
 
-  componentDidMount() {
-    this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {
-      if(!firebaseUser) { // not logged in then unregister the listener and redirect
-        if(this.unregister) {
-          this.unregister();
-        }
-        hashHistory.push('/login');
-      }
-    });
-  }
-
 
   render() {
-    var renderedWishlist = this.state.wishlist.map((item) => {
-      return (<p> {item} </p>);
+    var renderedWishlist = this.state.wishlist.map((item, key) => {
+      return <WishlistItem item={item} key={key} />;
     });
     return (
       <div>
         <form id="wishForm" onSubmit={(e) => this.handleSubmit(e)}>
           <input id="queryInput" type="text" /><input type="submit" value="Add to List"/>
         </form>
-        <p>
+        <div>
           Wishlist: <br />
            {renderedWishlist}
-        </p>
+        </div>
       </div>
     );
   }
 }
+class WishlistItem extends React.Component {
+  render() {
+    return (
+      <p>{this.props.item}</p>
+    );
+  }
+}
+
 
 export default WishlistPage;
