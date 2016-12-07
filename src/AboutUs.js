@@ -8,7 +8,7 @@ class AboutUs extends React.Component {
           <h2>About Us</h2>
         </div>
         <div>
-          <h3>Why DealFinder?</h3>
+          <h3 className="h3 text-center section-header">Why DealFinder?</h3>
           <p>The inspiration for this website was the realization that there are very few websites that aggregate the sales from various retailers in a personalized manner. DealFinder seeks to solve this problem by providing users with different sources to shop from multiple places on one website where you can personalize what items you see and keep track of.</p>
         </div>
         <div>

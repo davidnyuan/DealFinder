@@ -49,8 +49,8 @@ class Navigation extends React.Component {
         {user &&
           <Nav>
             <NavItem onClick={()=>this.redirect('/search')}>Search</NavItem>
-            <NavItem onClick={()=>this.redirect('/wishlist')}>Wishlist</NavItem>
-            <NavItem onClick={()=>this.redirect('/favorites')}>Favorites</NavItem>
+            <NavItem onClick={()=>this.redirect('/wishlist')}>Item Watchlist</NavItem>
+            <NavItem onClick={()=>this.redirect('/favorites')}>Favorited Items</NavItem>
           </Nav>
         }
         {user &&
