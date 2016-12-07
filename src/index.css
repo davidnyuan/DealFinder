@@ -1,3 +1,10 @@
+#ascVSdesc, #priceVSdiscount {
+  border: solid 1px gray;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +13,7 @@ body {
 
 #filterButton {
   /*float: right;*/
+  margin-left: 15px;
 }
 
 #filterOptions {
@@ -56,6 +64,14 @@ body {
 
 .modalImg {
   width: 90%;
+}
+
+#queryInput {
+  border: 1px solid gray;
+  border-radius: 5px;
+  height: 34px;
+  margin-right: 5px;
+  padding: 5px;
 }
 
 #searchForm {
