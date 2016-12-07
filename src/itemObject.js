@@ -44,7 +44,7 @@ class ItemObject extends React.Component {
     if(!this.state.removed) { // in case someone undisables the button cannot just remove everything
       var userId = firebase.auth().currentUser.uid;
       var favoritesPath = 'users/' + userId + '/favorites';
-      this.props.favorites.splice(this.props.favorites, 1); // remove the item at the index
+      this.props.favorites.splice(this.props.index, 1); // remove the item at the index
       this.props.updateParent({ favorites: this.props.favorites })
       // update the favorites
       firebase.database().ref(favoritesPath).set(this.props.favorites)

@@ -25,6 +25,7 @@ firebase.initializeApp(config);
 //load our CSS files
 import 'bootstrap/dist/css/bootstrap.css';
 import 'hover.css/css/hover-min.css';
+import 'font-awesome/css/font-awesome.css';
 import './index.css';
 
 ReactDOM.render(
