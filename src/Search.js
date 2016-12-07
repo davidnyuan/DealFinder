@@ -18,7 +18,7 @@ class SearchPage extends React.Component {
     this.updateParent = this.updateParent.bind(this);
   }
 
-  //When component mounts
+  //When component mounts (like onload), set state according to firebase user.
   componentDidMount() {
     this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {
       if (firebaseUser) { // there is a user logged in

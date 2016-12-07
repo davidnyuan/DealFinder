@@ -88,7 +88,7 @@ class ItemObject extends React.Component {
             <Modal.Title>{this.props.item.itemName}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <img className="rounded mx-auto d-block" src={this.props.item.imageURL} alt={this.props.item.itemName} />
+            <img className="rounded mx-auto d-block modalImg" src={this.props.item.imageURL} alt={this.props.item.itemName} />
             <p className="itemPrice">${this.props.item.currentPrice} </p>
             <p className="itemDiscount">{Math.round(this.props.item.discountRate * 100)}% off </p>
             <p><a href={this.props.item.websiteURL} target="_blank">Go to website</a></p>

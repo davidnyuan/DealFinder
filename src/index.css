@@ -54,6 +54,10 @@ body {
   font-size: 1.3em;
 }
 
+.modalImg {
+  width: 90%;
+}
+
 #searchForm {
   display: inline-block;
   margin-left: 10px;
