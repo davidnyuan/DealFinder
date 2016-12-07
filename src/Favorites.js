@@ -1,6 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
 import {ItemObject} from './Search';
+import {hashHistory} from 'react-router';
 
 class FavoritesPage extends React.Component {
   constructor(props) {
@@ -12,7 +13,12 @@ class FavoritesPage extends React.Component {
 
   componentDidMount() {
     this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {
-      if(firebaseUser) { // there is a user logged in
+      if(!firebaseUser) { // not logged in then unregister the listener and redirect
+        if(this.unregister) {
+          this.unregister();
+        }
+        hashHistory.push('/login');
+      } else { // there is a user logged in
         firebase.database().ref('users/' + firebaseUser.uid + '/favorites').once('value')
           .then((snapshot) => {
             this.setState({favorites: snapshot.val()})
@@ -25,7 +31,16 @@ class FavoritesPage extends React.Component {
   render() {
     var dealObjects = this.state.favorites.map((item, id) => {
       return (
-        <ItemObject sourceName="Sqoot" item={item} key={id} />
+        <ItemObject
+          sourceName="Sqoot"
+          item={item}
+          key={id}
+          add={true}
+          updateParent={this.updateParent}
+          favorites={this.state.favorites}
+          currentDate={new Date()}
+          expireDate={new Date(item.expiresAt)}
+        />
       );
     });
     return (

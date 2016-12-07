@@ -40,6 +40,10 @@ body {
   margin-left: 15px;
 }
 
+.timeRemaining {
+  color: red;
+}
+
 .itemName {
   font-size: 2em;
 }

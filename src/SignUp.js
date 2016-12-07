@@ -4,6 +4,16 @@ import {hashHistory} from 'react-router';
 import {RequiredInput} from './Login'
 import Loader from 'react-loader';
 
+class SignUpPage extends React.Component {
+  render() {
+    return(
+      <div>
+        <SignUpForm />
+      </div>
+    );
+  }
+}
+
 class SignUpForm extends React.Component {
   constructor(props){
     super(props);
@@ -269,4 +279,4 @@ class PasswordConfirmationInput extends React.Component {
 
 
 
-export default SignUpForm;
+export default SignUpPage;

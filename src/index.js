@@ -8,6 +8,7 @@ import AccountPage from './Account';
 import SignUpPage from './SignUp';
 import WishlistPage from './Wishlist';
 import FavoritesPage from './Favorites';
+import AboutPage from './AboutUs';
 
 import firebase from 'firebase';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router'
@@ -29,7 +30,7 @@ import './index.css';
 ReactDOM.render(
   <Router history={hashHistory}>
      <Route path="/" component={App}>
-       <IndexRoute component={LoginPage}/>
+       <IndexRoute component={AboutPage}/>
        <Route path="login" component={LoginPage} />
        <Route path="search" component={SearchPage} />
        <Route path="account" component={AccountPage} />

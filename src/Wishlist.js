@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
+import {hashHistory} from 'react-router';
 
 class WishlistPage extends React.Component {
   constructor(props) {
@@ -41,6 +42,18 @@ class WishlistPage extends React.Component {
     event.preventDefault();
     this.addToWishList();
   }
+
+  componentDidMount() {
+    this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {
+      if(!firebaseUser) { // not logged in then unregister the listener and redirect
+        if(this.unregister) {
+          this.unregister();
+        }
+        hashHistory.push('/login');
+      }
+    });
+  }
+
 
   render() {
     var renderedWishlist = this.state.wishlist.map((item) => {
