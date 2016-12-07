@@ -57,7 +57,27 @@ body {
   margin-left: 10px;
 }
 
-#searchResults {
+#searchResults, .wishlistResults {
   display: flex;
   flex-wrap: wrap;
+}
+
+#wishlistEmptyMsg {
+  font-size: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  text-align: center;
+  width: 50%;
+}
+
+.wishItemContainer h3 {
+  display: inline-block;
+}
+
+.wishRemove {
+  float: right;
+  font-size: 2em;
+  margin-right: 10%;
+  margin-top: 10px;
 }

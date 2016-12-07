@@ -53,21 +53,26 @@ class WishlistPage extends React.Component {
       var renderedWishList = this.state.wishlist.map((wish) => {
         return ( 
         <div> 
-          {wish} <br />
+          <h3> {wish.charAt(0).toUpperCase() + wish.slice(1)}: </h3>
           <WishlistItem item={wish} />
         </div> );
       })
     } else {
-      renderedWishList = "No items! Try adding some!";
+      renderedWishList = 
+        <p id="wishlistEmptyMsg" className="well"> No items? No problem! Just go ahead and add something with the search bar above. </p>
     }
 
     return (
       <div>
+        <div role="heading">
+          <h2>Wishlist</h2>
+          <p>Here's your wishlist! Check back often to see the latest deals on the items you're searching for!</p>
+        </div>
+        <hr />
         <form id="wishForm" onSubmit={(e) => this.handleSubmit(e)}>
           <input id="queryInput" type="text" /><input type="submit" value="Add to List"/>
         </form>
         <div>
-          Wishlist: <br />
            {renderedWishList}
         </div>
       </div>
@@ -98,14 +103,14 @@ class WishlistItem extends React.Component {
       }
     });
 
-    var resultsArr = DataController.grabData(this.props.item, 5);
+    var resultsArr = DataController.grabData(this.props.item, 4);
     var objectArray = [];
     resultsArr.then((res) => {
       res.deals.forEach((deals) => {
         var deal = deals.deal;
         objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
                   deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at, deal.expires_at));
-        this.setState({itemset: objectArray, faborites: this.state.faborites});
+        this.setState({itemset: objectArray, favorites: this.state.favorites});
       })
     })
   }
@@ -129,32 +134,8 @@ class WishlistItem extends React.Component {
         />
       );
     });
-    // var objectArray = [];
-    // console.log(this.props.itemList.then((res) => {
-    //   res.deals.forEach((deals) => {
-    //     var deal = deals.deal;
-    //     objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
-    //       deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at, deal.expires_at));
-    //     this.setState({items: objectArray});
-    //   })
-    // }));
-
-    // var dealObjects = this.state.items.map((item, id) => {
-    //   return (
-    //     <ItemObject
-    //       sourceName="Sqoot"
-    //       item={item}
-    //       key={id}
-    //       add={true}
-    //       updateParent={this.updateParent}
-    //       favorites={this.state.favorites}
-    //       currentDate={new Date()}
-    //       expireDate={new Date(item.expiresAt)}
-    //     />
-    //   );
-    // });
     return(
-      <span> {dealObjects} </span>
+      <span className="wishlistResults"> {dealObjects} </span>
     )
     
   }
