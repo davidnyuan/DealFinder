@@ -78,7 +78,24 @@ class SearchPage extends React.Component {
     })
   }
 
+  // cannot use amazon api due to cors.  Instead fetched from a dummy object with amazon data in github.raw and used that
+  // the object contains headphones.
+  // This function will retrieve the object and return an array of dealObjects that contain the information of each
+  // object returned from the query
+  getAmazonData() {
+    var itemArray = [];
+    DataController.getAmazonTele()
+      .then(res => {
+        itemArray = res.map(item => {
+          return new dealObject(item.ItemAttributes.Title, 'Amazon');
+        });
+      })
+      .catch(e => console.log(e.message));
+    return itemArray;
+  }
+
   render() {
+
     //Map all objects in state to ItemObject components
     var dealObjects = this.state.objects.map((item, id) => {
       return (
