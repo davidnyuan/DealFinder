@@ -15,6 +15,7 @@ class SearchPage extends React.Component {
     this.updateParent = this.updateParent.bind(this);
   }
 
+  //When component mounts
   componentDidMount() {
     this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {
       if(firebaseUser) { // there is a user logged in
@@ -61,7 +62,7 @@ class SearchPage extends React.Component {
     event.preventDefault();
     var query = document.querySelector("#queryInput").value;
     var objectArray = [];
-    var resultsArr = DataController.grabData(query)
+    var resultsArr = DataController.grabData(query, 100);
     resultsArr.then((res) => {
       res.deals.forEach((deals) => {
         var deal = deals.deal;
