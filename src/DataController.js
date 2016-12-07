@@ -1,5 +1,6 @@
 import 'whatwg-fetch'; //for polyfill
 import CryptoJS from 'crypto-js';
+import {amazonTelevision} from './sampleObjects/amazonTelevision.js'
 
 var DataController = {
   // does not work.  403 forbidden error???
@@ -39,7 +40,7 @@ var DataController = {
     //sqoot
     return fetch('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&per_page=' + perPage + '&online=true&query=' + query)
       .then((res) => {
-          
+
           return res.json();
       });
   },
@@ -65,6 +66,13 @@ var DataController = {
         "X-INAB-REST-API-Key": "6d7a9c9c9691f611a410c19ad84baf8a"
       }
     }).then(res => console.log(res));
+  },
+
+  // sample get call on amazon television since cannot use the actual api due to cors
+  // object was obtained by downloading the json manually, so the data will not be up to date
+  // proof of concept that can save data to standardized format
+  getAmazonTele: function() {
+    console.log(amazonTelevision);
   }
 }
 
