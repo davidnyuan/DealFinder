@@ -80,7 +80,16 @@ class SearchPage extends React.Component {
     //Map all objects in state to ItemObject components
     var dealObjects = this.state.objects.map((item, id) => {
       return (
-        <ItemObject sourceName="Sqoot" item={item} key={id} add={true} updateParent={this.updateParent} favorites={this.state.favorites} />
+        <ItemObject
+          sourceName="Sqoot"
+          item={item}
+          key={id}
+          add={true}
+          updateParent={this.updateParent}
+          favorites={this.state.favorites}
+          currentDate={new Date()}
+          expireDate={new Date(item.expiresAt)}
+        />
       );
     });
 
@@ -123,9 +132,22 @@ class ItemObject extends React.Component {
     this.state = {
       showModal: false,
       clickable: true,
+      secondsElapsed: 0,
     }
     this.close = this.close.bind(this);
     this.open = this.open.bind(this);
+    this.tick = this.tick.bind(this);
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(this.tick, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  tick() {
+    this.setState({ secondsElapsed: (this.state.secondsElapsed + 1) });
   }
 
   close() {
@@ -149,9 +171,7 @@ class ItemObject extends React.Component {
     this.setState({ clickable: false });
   }
 
-  // TODO: MAKE THE FAVORITES BUTTON ONLY USEABLE WHEN LOGGED IN
   render() {
-
     return (
       <div className="item hvr-grow well" role="button" onClick={this.open}>
         <img className="itemImg" src={this.props.item.imageURL} alt={this.props.item.itemName} />
@@ -159,9 +179,13 @@ class ItemObject extends React.Component {
           <span className="itemName">{this.props.item.itemName}</span> <br />
           <span className="itemPrice">${this.props.item.currentPrice} </span>
           <span className="itemDiscount">{Math.round(this.props.item.discountRate * 100)}% off </span><br />
-          Found via {this.props.sourceName}
+          Found via {this.props.sourceName}<br />
+          <Timer
+            expireDate={this.props.expireDate}
+            currentDate={this.props.currentDate}
+            secondsElapsed={this.state.secondsElapsed}
+          />
         </p>
-        <Timer expDate={this.props.item.expiresAt} />
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>{this.props.item.itemName}</Modal.Title>
@@ -171,6 +195,12 @@ class ItemObject extends React.Component {
             <p className="itemPrice">${this.props.item.currentPrice} </p>
             <p className="itemDiscount">{Math.round(this.props.item.discountRate * 100)}% off </p>
             <a href={this.props.item.websiteURL} target="_blank">Go to website</a>
+            <Timer
+              expireDate={this.props.expireDate}
+              currentDate={this.props.currentDate}
+              secondsElapsed={this.state.secondsElapsed}
+            />
+
           </Modal.Body>
           <Modal.Footer>
             {/*Dont want it clickable if it's already been clicked once or there is currently no user*/}
@@ -192,28 +222,9 @@ class ItemObject extends React.Component {
 }
 
 class Timer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      secondsElapsed: 0,
-      currentTime: new Date(),
-      expireDate: new Date(this.props.expDate)
-    };
-    this.tick = this.tick.bind(this);
-  }
-  componentDidMount() {
-    this.interval = setInterval(this.tick, 1000);
-  }
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
 
-  tick() {
-    this.setState({ secondsElapsed: (this.state.secondsElapsed + 1) });
-    //console.log(this.state.secondsElapsed);
-  }
   render() {
-    var total = Math.abs((this.state.expireDate - this.state.currentTime) / 1000 - this.state.secondsElapsed)
+    var total = Math.abs((this.props.expireDate - this.props.currentDate) / 1000 - this.props.secondsElapsed)
     var years = Math.floor(total / 31536000);
     total -= years * 31536000;
     var months = Math.floor(total / 2592000);
@@ -227,15 +238,15 @@ class Timer extends React.Component {
     total = Math.floor(total % 60);
     if (years > 0) {
       return (
-        <div className="timeRemaining">Time left: {years}years, {months}months, {days}days, {hours}hours, {minutes}minutes, and {total}seconds</div>
+        <span className="timeRemaining">Time left: {years} years, {months} months, {days} days, {hours} hours, {minutes} minutes, and {total} seconds</span>
       );
     } else if (months > 0) {
       return (
-        <div className="timeRemaining">Time left: {months}months, {days}days, {hours}hours, {minutes}minutes, and {total}seconds</div>
+        <span className="timeRemaining">Time left: {months} months, {days} days, {hours} hours, {minutes} minutes, and {total} seconds</span>
       );
     } else {
       return (
-        <div className="timeRemaining">Time left: {days}days, {hours}hours, {minutes}minutes, and {total}seconds</div>
+        <span className="timeRemaining">Time left: {days} days, {hours} hours, {minutes} minutes, and {total} seconds</span>
       );
     }
   }

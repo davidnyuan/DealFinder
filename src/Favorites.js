@@ -31,7 +31,16 @@ class FavoritesPage extends React.Component {
   render() {
     var dealObjects = this.state.favorites.map((item, id) => {
       return (
-        <ItemObject sourceName="Sqoot" item={item} key={id} />
+        <ItemObject
+          sourceName="Sqoot"
+          item={item}
+          key={id}
+          add={true}
+          updateParent={this.updateParent}
+          favorites={this.state.favorites}
+          currentDate={new Date()}
+          expireDate={new Date(item.expiresAt)}
+        />
       );
     });
     return (

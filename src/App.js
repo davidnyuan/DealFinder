@@ -59,7 +59,7 @@ class Navigation extends React.Component {
                 <MenuItem onClick={()=>this.signOut()}>Sign Out</MenuItem>
               </NavDropdown>
           </Nav>
-        } 
+        }
       </Navbar>
 
     );
