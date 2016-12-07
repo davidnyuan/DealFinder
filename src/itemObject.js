@@ -8,6 +8,7 @@ class ItemObject extends React.Component {
     this.state = {
       showModal: false,
       clickable: true,
+      removed: false,
       secondsElapsed: 0,
     }
     this.close = this.close.bind(this);
@@ -32,6 +33,21 @@ class ItemObject extends React.Component {
 
   open() {
     this.setState({ showModal: true });
+  }
+
+  removeFromFavorites() {
+    if(!this.state.removed) { // in case someone undisables the button cannot just remove everything
+      var userId = firebase.auth().currentUser.uid;
+      var favoritesPath = 'users/' + userId + '/favorites';
+      var newArray = this.props.favorites.splice(newArray,1);
+      console.log(this.props);
+      this.props.updateParent({ favorites: newArray })
+      // update the favorites
+      firebase.database().ref(favoritesPath).set(newArray)
+        .then(() => console.log('success!'))
+        .catch(e => console.log(e));
+      this.setState({ removed: true });
+    }
   }
 
   addToFavorites() {
@@ -87,6 +103,15 @@ class ItemObject extends React.Component {
                 className="pull-left"
                 >
                 {this.state.clickable ? 'Add to Favorites' : 'Favorited!'}
+              </Button>
+            }
+            {this.props.remove &&
+              <Button
+                onClick={() => this.removeFromFavorites()}
+                disabled={this.state.removed || !firebase.auth().currentUser}
+                className="pull-left"
+                >
+                {this.state.clickable ? 'Remove from favorites' : 'Removed!'}
               </Button>
             }
             <Button onClick={this.close}>Close</Button>

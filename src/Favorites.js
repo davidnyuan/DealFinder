@@ -9,6 +9,7 @@ class FavoritesPage extends React.Component {
     this.state = {
       favorites: []
     }
+    this.updateParent = this.updateParent.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +29,10 @@ class FavoritesPage extends React.Component {
     });
   }
 
+  updateParent(input) {
+    this.setState(input);
+  }
+
   render() {
     var dealObjects = this.state.favorites.map((item, id) => {
       return (
@@ -35,11 +40,12 @@ class FavoritesPage extends React.Component {
           sourceName="Sqoot"
           item={item}
           key={id}
-          add={true}
+          index={id}
           updateParent={this.updateParent}
           favorites={this.state.favorites}
           currentDate={new Date()}
           expireDate={new Date(item.expiresAt)}
+          remove={true}
         />
       );
     });

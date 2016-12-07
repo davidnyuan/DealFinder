@@ -100,6 +100,12 @@ class SearchPage extends React.Component {
         <Loader loaded={this.state.loaded}>
         </Loader>
 
+        <div role="heading">
+          <h2>Search</h2>
+          <p>Welcome to the search page.  Find your desired items and favorite them!</p>
+        </div>
+        <hr />
+
         <form id="searchForm" onSubmit={(e) => this.handleSubmit(e)}>
           <input id="queryInput" type="text" /><input type="submit" value="Search" />
         </form>
