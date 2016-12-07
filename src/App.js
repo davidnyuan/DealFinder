@@ -43,6 +43,7 @@ class Navigation extends React.Component {
           <Nav>
             <NavItem onClick={()=>this.redirect('/signup')}>Sign Up</NavItem>
             <NavItem onClick={()=>this.redirect('/login')}>Login</NavItem>
+            <NavItem onClick={()=>this.redirect('/search')}>Search</NavItem>
           </Nav>
         }
         {user &&
