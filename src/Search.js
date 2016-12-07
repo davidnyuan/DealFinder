@@ -14,7 +14,8 @@ class SearchPage extends React.Component {
     this.state = {
       objects: [],
       loaded: true,
-      favorites: []
+      favorites: [],
+      searchAttempted: false
     };
     this.updateParent = this.updateParent.bind(this);
   }
@@ -72,6 +73,8 @@ class SearchPage extends React.Component {
     this.setState({ loaded: false }); //Start loading spinner
     var resultsArr = DataController.grabData(query, 100); //Obtain up to 100 results.
     resultsArr.then((res) => {
+      console.log(res.deals.length);
+      if(res.deals.length != 0) {
       res.deals.forEach((deals) => {
         var deal = deals.deal; //Confusing, but this is what sqoot's returns are like. deals.deals.deal
         //Push a new object defining the individual deal item to objectArray. 
@@ -80,6 +83,9 @@ class SearchPage extends React.Component {
         objectArray = this.sortItems(objectArray);
         this.setState({ objects: objectArray, loaded: true });
       });
+      } else {
+        this.setState({ objects: [], loaded: true, searchAttempted: true});
+      }
     })
   }
 
@@ -148,7 +154,10 @@ class SearchPage extends React.Component {
         </Collapse>
 
         <div id="searchResults">
-          {dealObjects}
+          {dealObjects.length != 0 &&
+            dealObjects}
+          {dealObjects.length == 0 && this.state.searchAttempted &&
+            <p> No results found </p>}
         </div>
       </div>
     );
