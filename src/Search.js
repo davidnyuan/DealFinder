@@ -8,6 +8,7 @@ import ItemObject from './itemObject.js';
 import Loader from 'react-loader';
 
 class SearchPage extends React.Component {
+  //Set state to contain objects & favorites arrays, set loaded to true for Loader.
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +25,7 @@ class SearchPage extends React.Component {
       if (firebaseUser) { // there is a user logged in
         firebase.database().ref('users/' + firebaseUser.uid + '/favorites').once('value')
           .then((snapshot) => {
-            if (snapshot.val()) { // any values stored then set favorites to it
+            if (snapshot.val()) { // any values stored then set favorites to favorites in state.
               this.setState({ favorites: snapshot.val() })
             }
           })
@@ -33,13 +34,15 @@ class SearchPage extends React.Component {
     });
   }
 
+  //Updates state of parent component. This one, SearchPage.
   updateParent(input) {
     this.setState(input);
   }
 
+  //Sorts array parameter and returns new version, according to filter options.
   sortItems(itemArray) {
-    var selectedPriceDisc = document.querySelector('input[name = "priceVSdiscount"]:checked').value;
-    var selectedOrder = document.querySelector('input[name = "ascVSdesc"]:checked').value;
+    var selectedPriceDisc = document.querySelector('input[name = "priceVSdiscount"]:checked').value; //Price or discount selected.
+    var selectedOrder = document.querySelector('input[name = "ascVSdesc"]:checked').value;           //Ascending or descending selected.
     //Sort by price.
     if (selectedPriceDisc === "price") {
       //Sort by price ascending.
@@ -61,15 +64,17 @@ class SearchPage extends React.Component {
     }
   }
 
+  //Handles process carried out after pressing search.
   handleSubmit(event) {
     event.preventDefault();
-    var query = document.querySelector("#queryInput").value;
-    var objectArray = [];
-    this.setState({ loaded: false });
-    var resultsArr = DataController.grabData(query, 100);
+    var query = document.querySelector("#queryInput").value; //get input value
+    var objectArray = []; //array for returned results
+    this.setState({ loaded: false }); //Start loading spinner
+    var resultsArr = DataController.grabData(query, 100); //Obtain up to 100 results.
     resultsArr.then((res) => {
       res.deals.forEach((deals) => {
-        var deal = deals.deal;
+        var deal = deals.deal; //Confusing, but this is what sqoot's returns are like. deals.deals.deal
+        //Push a new object defining the individual deal item to objectArray. 
         objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
           deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at, deal.expires_at));
         objectArray = this.sortItems(objectArray);
@@ -95,14 +100,13 @@ class SearchPage extends React.Component {
   }
 
   render() {
-
     //Map all objects in state to ItemObject components
     var dealObjects = this.state.objects.map((item, id) => {
       return (
         <ItemObject
           sourceName="Sqoot"
           item={item}
-          key={id}
+          key={id} //Added key for iterator.
           add={true}
           updateParent={this.updateParent}
           favorites={this.state.favorites}
@@ -124,7 +128,7 @@ class SearchPage extends React.Component {
         <hr />
 
         <form id="searchForm" onSubmit={(e) => this.handleSubmit(e)}>
-          <input id="queryInput" type="text" /><input type="submit" value="Search" />
+          <input id="queryInput" type="text" /><input type="submit" className="btn btn-default" value="Search" />
         </form>
 
         <Button id="filterButton" onClick={() => this.setState({ open: !this.state.open })}>

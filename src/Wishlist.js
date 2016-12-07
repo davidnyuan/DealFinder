@@ -71,7 +71,7 @@ class WishlistPage extends React.Component {
         </div>
         <hr />
         <form id="wishForm" onSubmit={(e) => this.handleSubmit(e)}>
-          <input id="queryInput" type="text" /><input type="submit" value="Add to List"/>
+          <input id="queryInput" type="text" /><input type="submit" className="btn btn-default" value="Add to List"/>
         </form>
         <div>
            {renderedWishList}

@@ -1,3 +1,10 @@
+#ascVSdesc, #priceVSdiscount {
+  border: solid 1px gray;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +13,7 @@ body {
 
 #filterButton {
   /*float: right;*/
+  margin-left: 15px;
 }
 
 #filterOptions {
@@ -58,6 +66,14 @@ body {
   width: 90%;
 }
 
+#queryInput {
+  border: 1px solid gray;
+  border-radius: 5px;
+  height: 34px;
+  margin-right: 5px;
+  padding: 5px;
+}
+
 #searchForm {
   display: inline-block;
   margin-left: 10px;
@@ -104,8 +120,8 @@ label {
 }
 
 .container h2 {
-  color: #f7f7f7;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: #D0D0D0;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   font-family: 'Slabo 27px', Helvetica, Arial, sans-serif;
   font-size: 10rem;
 }
