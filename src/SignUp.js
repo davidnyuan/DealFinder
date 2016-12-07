@@ -62,7 +62,7 @@ class SignUpForm extends React.Component {
 
       })
       .then(() => {this.setState({loaded: true})})
-      .then(() => hashHistory.push('/account')) // redirect to a different page after signing in
+      .then(() => hashHistory.push('/search')) // redirect to a different page after signing in
       .catch((e) => {
         this.setState({loaded: true, error:e.message}) // display the error message
         console.log(e.message)
@@ -89,7 +89,7 @@ class SignUpForm extends React.Component {
         {this.state.error &&
           <div className="alert alert-danger">{this.state.error}</div>
         }
-        
+
         <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
 
           <EmailInput value={this.state.email.value} updateParent={this.updateState} submitted={this.state.submitted}/>
