@@ -83,3 +83,110 @@ label {
   font-family: 'Slabo 27px', Helvetica, Arial, sans-serif;
   font-size: 10rem;
 }
+
+.signinPage{
+  background: rgba(19, 35, 47, 0.9);
+  margin: 0;
+  padding: 0;
+}
+
+.signinPage div {
+  margins: 0;
+  padding: 0;
+}
+.signinPage h2 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 300;
+  margin: 0 0 40px;
+  font-family: "Titillium Web";
+}
+
+.signinPage p {
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+}
+
+.signinPage button {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 15px;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #1ab188;
+  color: black;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-appearance: none;
+}
+
+.signinPage button:hover, button:focus {
+  background: #179b77;
+}
+
+.signinPage button-block {
+  display: block;
+  width: 100%;
+}
+
+.signinPage form{
+  background: rgba(19, 35, 47, 0.9);
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.signinPage body {
+  background: #c1bdba;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.signinPage a {
+  text-decoration: none;
+  color: #1ab188;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+.signinPage a:hover {
+  color: #179b77;
+}
+
+.signinPage h1 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 300;
+  margin: 0 0 40px;
+}
+.signinPage label.highlight {
+  color: #ffffff;
+}
+
+.signinPage input, textarea {
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  background: none;
+  background-image: none;
+  border: 1px solid #a0b3b0;
+  color: #ffffff;
+  border-radius: 0;
+  -webkit-transition: border-color .25s ease, box-shadow .25s ease;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.signinPage input:focus, textarea:focus {
+  outline: 0;
+  border-color: #1ab188;
+}
+
+.signinPage textarea {
+  border: 2px solid #a0b3b0;
+  resize: vertical;
+}
