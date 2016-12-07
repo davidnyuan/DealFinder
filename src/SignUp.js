@@ -79,12 +79,6 @@ class SignUpForm extends React.Component {
         <Loader loaded={this.state.loaded}>
         </Loader>
 
-        <div role="heading">
-          <h2>Sign Up</h2>
-          <p>Create your account today and get immediate deals!</p>
-        </div>
-        <hr />
-
         <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
 
           <EmailInput value={this.state.email.value} updateParent={this.updateState} submitted={this.state.submitted}/>
