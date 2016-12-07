@@ -86,8 +86,8 @@ class SearchPage extends React.Component {
     var itemArray = [];
     DataController.getAmazonTele()
       .then(res => {
-        itemArray = res.map(item => {
-          return new dealObject(item.ItemAttributes.Title, 'Amazon');
+        itemArray = res.map(item => { // for each item returned by the json object
+          return new dealObject(item.ItemAttributes.Title, 'Amazon'); // create a data object with those attributes.
         });
       })
       .catch(e => console.log(e.message));
