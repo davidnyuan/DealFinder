@@ -7,7 +7,7 @@ import Loader from 'react-loader';
 class SignUpPage extends React.Component {
   render() {
     return(
-      <div>
+      <div className="signinPage">
         <SignUpForm />
       </div>
     );
