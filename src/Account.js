@@ -4,19 +4,19 @@ import {hashHistory} from 'react-router';
 import {FormGroup, FormControl, Modal, Button} from 'react-bootstrap';
 
 class AccountPage extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        email:'',
-        password:'',
-        showModal: false,
-        modalText:''
-      }
-    this.changeEmail = this.changeEmail.bind(this);
-    this.openModal = this.openModal.bind(this);
-    this.changePassword = this.changePassword.bind(this);
-    this.close = this.close.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {
+      email:'',
+      password:'',
+      showModal: false,
+      modalText:''
     }
+  this.changeEmail = this.changeEmail.bind(this);
+  this.openModal = this.openModal.bind(this);
+  this.changePassword = this.changePassword.bind(this);
+  this.close = this.close.bind(this);
+  }
 
   componentDidMount() {
     this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {

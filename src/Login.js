@@ -6,7 +6,9 @@ import Loader from 'react-loader';
 class LoginPage extends React.Component {
   render() {
     return(
-      <LoginForm />
+      <div id="loginPage">
+        <LoginForm />
+      </div>
     );
   }
 }
@@ -55,6 +57,12 @@ class LoginForm extends React.Component {
       <div className="col-md-4 pull-right">
         <Loader loaded={this.state.loaded}>
         </Loader>
+
+        <div role="heading">
+          <h2>Sign In</h2>
+        </div>
+        <hr />
+
         <form name="signupForm" onSubmit={(e) => this.handleSubmit(e)}>
 
           <RequiredInput
