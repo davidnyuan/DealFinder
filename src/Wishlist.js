@@ -26,7 +26,18 @@ class WishlistPage extends React.Component {
     });
   }
 
-  addToWishList() {
+  // callback function used to remove saved search from wishlist
+  removeFromWishlist(index) {
+    this.state.wishlist.splice(index, 1); // remove the item at the given index
+    var userID = firebase.auth().currentUser.uid;
+    var wishlistPath = 'users/' + userID + '/wishlist';
+    firebase.database().ref(wishlistPath).set(this.state.wishlist) // set it up in firebase
+      .catch(e => console.log(e));
+    this.setState({wishlist: this.state.wishlist});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
     var wish = document.querySelector("#queryInput").value; // get the value in the search box
     var userID = firebase.auth().currentUser.uid;
     var wishlistPath = 'users/' + userID + '/wishlist';
@@ -40,24 +51,7 @@ class WishlistPage extends React.Component {
     this.setState({wishlist: newWishArr});
   }
 
-  // callback function used to remove saved search from wishlist
-  removeFromWishlist(index) {
-    var tmp = this.state.wishlist;
-    tmp.splice(index, 1); // remove the item at the given index
-    var userID = firebase.auth().currentUser.uid;
-    var wishlistPath = 'users/' + userID + '/wishlist';
-    firebase.database().ref(wishlistPath).set(tmp) // set it up in firebase
-      .catch(e => console.log(e));
-    this.setState({wishlist: tmp});
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    this.addToWishList();
-  }
-
   render() {
-    console.log(this.state.wishlist);
     if(this.state.wishlist != null) {
       var renderedWishList = this.state.wishlist.map((wish, key) => {
         return (
@@ -92,41 +86,36 @@ class WishlistItem extends React.Component {
     super(props);
     this.state = {
       itemset: [],
-      favorites: [],
       loaded: true
     };
-    this.updateParent = this.updateParent.bind(this);
+    this.getObjectArray = this.getObjectArray.bind(this);
   }
 
   componentDidMount() {
-    this.unregister = firebase.auth().onAuthStateChanged(firebaseUser => {
-      if (firebaseUser) { // there is a user logged in
-        firebase.database().ref('users/' + firebaseUser.uid + '/favorites').once('value')
-          .then((snapshot) => {
-            if (snapshot.val()) { // any values stored then set favorites to it
-              this.setState({ favorites: snapshot.val() })
-            }
-          })
-          .catch(e => console.log(e))
-      }
-    });
+    this.getObjectArray(this.props.item);
+  }
 
-    var resultsArr = DataController.grabData(this.props.item, 4); // only grab top 4 items
-    var objectArray = [];
+  // given a json object returns a dealObject that can be used later
+  getObjectArray(item) {
+    var tmpArr = [];
     this.setState({loaded: false}); // start the loading icon
-    resultsArr.then((res) => {
-      res.deals.forEach((deals) => {
-        var deal = deals.deal;
-        objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
-                  deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at, deal.expires_at));
+    DataController.grabData(this.props.item, 4)
+      .then(res => {
+        res.deals.forEach(deal => {
+          tmpArr.push(this.getObject(deal.deal));
+        });
+        this.setState({loaded:true, itemset: tmpArr}) // turn off loading indicator and stick the array into the state
       })
-      this.setState({itemset: objectArray, favorites: this.state.favorites, loaded: true}); // remove loading icon and store things
-    })
+      .catch(e => console.log(e.message));
+
   }
 
-  updateParent(input) {
-    this.setState(input);
+  // given deal data will return a deal object containing that data
+  getObject(deal) {
+    return new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
+              deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at, deal.expires_at);
   }
+
 
   //uses the callback to remove the current wishlist item
   remove() {
