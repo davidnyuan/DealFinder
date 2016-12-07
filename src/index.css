@@ -104,8 +104,8 @@ label {
 }
 
 .container h2 {
-  color: #f7f7f7;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: #707070;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   font-family: 'Slabo 27px', Helvetica, Arial, sans-serif;
   font-size: 10rem;
 }
