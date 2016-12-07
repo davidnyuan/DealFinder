@@ -37,7 +37,7 @@ var DataController = {
   grabData: function (query, perPage) {
     query = query.replace(" ", "%20");
     //sqoot
-    return fetch('http://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&per_page=' + perPage + '&online=true&query=' + query)
+    return fetch('https://api.sqoot.com/v2/deals?api_key=nBk_SmX1WbhznkZ44N96&per_page=' + perPage + '&online=true&query=' + query)
       .then((res) => {
           return res.json();
       });
@@ -46,7 +46,7 @@ var DataController = {
   // THIS ONE ALSO DOESNT WORK
   getRakuten: function(keywords) {
 
-    fetch("http://api.popshops.com/v2/brgymtenmw5ea9unauesmh9nz/products.xml?catalog_key=48qsligejm5qng6cv5waprcoq&keywords=ipod&include_deals=1")
+    fetch("https://api.popshops.com/v2/brgymtenmw5ea9unauesmh9nz/products.xml?catalog_key=48qsligejm5qng6cv5waprcoq&keywords=ipod&include_deals=1")
       .then(res => res.json())
       .then(json => console.log(json));
   },
@@ -58,7 +58,7 @@ var DataController = {
 
   // ALSO DOES NOT WORK
   getBargain: function(keywords) {
-    fetch("http://www.ineedabargain.com/api/deals", {
+    fetch("https://www.ineedabargain.com/api/deals", {
       header: {
         "X-INAB-Application-Id": "08aa2798",
         "X-INAB-REST-API-Key": "6d7a9c9c9691f611a410c19ad84baf8a"
