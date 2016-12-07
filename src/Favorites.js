@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
 import {hashHistory} from 'react-router';
-import ItemObject from './ItemObject';
+import ItemObject from './itemObject';
 
 class FavoritesPage extends React.Component {
   constructor(props) {
@@ -51,8 +51,12 @@ class FavoritesPage extends React.Component {
     });
     return (
       <div>
-        <h2>Favorites Page</h2>
-        {dealObjects.length > 0 ? dealObjects : <p>Currently no items favorited</p>}
+        <div role="heading">
+          <h2>Favorites Page</h2>
+          <p>Manage your favorites here!</p>
+        </div>
+        <hr />
+        {dealObjects.length > 0 ? dealObjects : <p className="well">Currently no items favorited</p>}
       </div>
     );
   }

@@ -1,0 +1,486 @@
+{
+   "ItemSearchResponse": {
+      "OperationRequest": {
+         "HTTPHeaders": {
+            "Header": {
+               "_Name": "UserAgent",
+               "_Value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36"
+            }
+         },
+         "RequestId": "164a6e45-5a2b-447e-a3f6-c930711a4f3e",
+         "Arguments": {
+            "Argument": [
+               {
+                  "_Name": "AWSAccessKeyId",
+                  "_Value": "AKIAJH52CXHDZPFFKDAA"
+               },
+               {
+                  "_Name": "AssociateTag",
+                  "_Value": "de032a-20"
+               },
+               {
+                  "_Name": "Keywords",
+                  "_Value": "phone"
+               },
+               {
+                  "_Name": "Operation",
+                  "_Value": "ItemSearch"
+               },
+               {
+                  "_Name": "SearchIndex",
+                  "_Value": "All"
+               },
+               {
+                  "_Name": "Service",
+                  "_Value": "AWSECommerceService"
+               },
+               {
+                  "_Name": "Timestamp",
+                  "_Value": "2016-12-06T03:13:21.000Z"
+               },
+               {
+                  "_Name": "Signature",
+                  "_Value": "zHoGD26uYi36lNKVxMMvfFcyLqxymySNBtiinYcn0lg="
+               }
+            ]
+         },
+         "RequestProcessingTime": "0.0489102970000000"
+      },
+      "Items": {
+         "Request": {
+            "IsValid": "True",
+            "ItemSearchRequest": {
+               "Keywords": "phone",
+               "ResponseGroup": "Small",
+               "SearchIndex": "All"
+            }
+         },
+         "TotalResults": "16135363",
+         "TotalPages": "1613537",
+         "MoreSearchResultsUrl": "https://www.amazon.com/gp/redirect.html?linkCode=xm2&SubscriptionId=AKIAJH52CXHDZPFFKDAA&location=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fsearch%3Fkeywords%3Dphone%26url%3Dsearch-alias%253Daws-amazon-aps&tag=de032a-20&creative=386001&camp=2025",
+         "Item": [
+            {
+               "ASIN": "B004OA758C",
+               "ParentASIN": "B01H3DBE7Y",
+               "DetailPageURL": "https://www.amazon.com/VTech-CS6114-Cordless-Waiting-Handset/dp/B004OA758C%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004OA758C",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/VTech-CS6114-Cordless-Waiting-Handset/dp/tech-data/B004OA758C%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA758C"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB004OA758C%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA758C"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB004OA758C%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA758C"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB004OA758C%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA758C"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B004OA758C%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA758C"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B004OA758C%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA758C"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B004OA758C%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA758C"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "V-Tech",
+                  "ProductGroup": "CE",
+                  "Title": "VTech CS6114 DECT 6.0 Cordless Phone with Caller ID/Call Waiting, White/Grey with 1 Handset"
+               }
+            },
+            {
+               "ASIN": "B018IZ0VLQ",
+               "ParentASIN": "B01MPXRXR0",
+               "DetailPageURL": "https://www.amazon.com/BLU-Advance-5-0-Unlocked-Smartphone/dp/B018IZ0VLQ%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB018IZ0VLQ",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/BLU-Advance-5-0-Unlocked-Smartphone/dp/tech-data/B018IZ0VLQ%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018IZ0VLQ"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB018IZ0VLQ%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018IZ0VLQ"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB018IZ0VLQ%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018IZ0VLQ"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB018IZ0VLQ%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018IZ0VLQ"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B018IZ0VLQ%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018IZ0VLQ"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B018IZ0VLQ%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018IZ0VLQ"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B018IZ0VLQ%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018IZ0VLQ"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "BLU",
+                  "ProductGroup": "Wireless",
+                  "Title": "BLU Advance 5.0 - Unlocked Dual Sim Smartphone - US GSM - White"
+               }
+            },
+            {
+               "ASIN": "B00FRSYS12",
+               "ParentASIN": "B017X9EYQQ",
+               "DetailPageURL": "https://www.amazon.com/VTech-CS6719-2-Waiting-Cordless-Handsets/dp/B00FRSYS12%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00FRSYS12",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/VTech-CS6719-2-Waiting-Cordless-Handsets/dp/tech-data/B00FRSYS12%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00FRSYS12"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00FRSYS12%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00FRSYS12"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00FRSYS12%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00FRSYS12"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00FRSYS12%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00FRSYS12"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B00FRSYS12%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00FRSYS12"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B00FRSYS12%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00FRSYS12"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B00FRSYS12%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00FRSYS12"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "Vtech",
+                  "ProductGroup": "CE",
+                  "Title": "VTech CS6719-2 DECT 6.0 Phone with Caller ID/Call Waiting, Silver/Black with 2 Cordless Handsets"
+               }
+            },
+            {
+               "ASIN": "B00005MITU",
+               "ParentASIN": "B00UROTAB4",
+               "DetailPageURL": "https://www.amazon.com/AT-Trimline-Corded-Phone-Handset/dp/B00005MITU%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00005MITU",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/AT-Trimline-Corded-Phone-Handset/dp/tech-data/B00005MITU%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005MITU"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00005MITU%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005MITU"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00005MITU%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005MITU"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00005MITU%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005MITU"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B00005MITU%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005MITU"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B00005MITU%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005MITU"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B00005MITU%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00005MITU"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "AT&T",
+                  "ProductGroup": "CE",
+                  "Title": "AT&T 210M Trimline Corded Phone, Black, 1 Handset"
+               }
+            },
+            {
+               "ASIN": "B004OA74OC",
+               "ParentASIN": "B00WS64C0S",
+               "DetailPageURL": "https://www.amazon.com/VTech-CS6429-2-Expandable-Cordless-Answering/dp/B004OA74OC%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004OA74OC",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/VTech-CS6429-2-Expandable-Cordless-Answering/dp/tech-data/B004OA74OC%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA74OC"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB004OA74OC%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA74OC"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB004OA74OC%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA74OC"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB004OA74OC%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA74OC"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B004OA74OC%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA74OC"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B004OA74OC%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA74OC"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B004OA74OC%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004OA74OC"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "V-Tech",
+                  "ProductGroup": "CE",
+                  "Title": "VTech CS6429-2 DECT 6.0 Expandable Cordless Phone with Answering System and Caller ID/Call Waiting, Silver with 2 Handsets"
+               }
+            },
+            {
+               "ASIN": "B01F57V826",
+               "ParentASIN": "B01H5VQZ0A",
+               "DetailPageURL": "https://www.amazon.com/BLU-Studio-Selfie-Unlocked-Smartphone/dp/B01F57V826%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB01F57V826",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/BLU-Studio-Selfie-Unlocked-Smartphone/dp/tech-data/B01F57V826%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB01F57V826"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB01F57V826%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB01F57V826"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB01F57V826%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB01F57V826"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB01F57V826%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB01F57V826"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B01F57V826%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB01F57V826"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B01F57V826%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB01F57V826"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B01F57V826%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB01F57V826"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "BLU",
+                  "ProductGroup": "Wireless Device",
+                  "Title": "BLU Studio Selfie 2 - GSM Unlocked Smartphone - Gold"
+               }
+            },
+            {
+               "ASIN": "B009R5VTX6",
+               "ParentASIN": "B01MYQ1Y3B",
+               "DetailPageURL": "https://www.amazon.com/AT-CL2940-Speakerphone-Extra-Large-Display/dp/B009R5VTX6%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB009R5VTX6",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/AT-CL2940-Speakerphone-Extra-Large-Display/dp/tech-data/B009R5VTX6%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB009R5VTX6"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB009R5VTX6%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB009R5VTX6"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB009R5VTX6%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB009R5VTX6"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB009R5VTX6%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB009R5VTX6"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B009R5VTX6%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB009R5VTX6"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B009R5VTX6%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB009R5VTX6"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B009R5VTX6%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB009R5VTX6"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "AT&T",
+                  "ProductGroup": "CE",
+                  "Title": "AT&T CL2940 Corded Phone with Speakerphone, Extra-Large Tilt Display/Buttons, Caller ID/Call Waiting and Audio Assist, Black"
+               }
+            },
+            {
+               "ASIN": "B00CS16EJU",
+               "ParentASIN": "B01FS86ZZM",
+               "DetailPageURL": "https://www.amazon.com/VTech-Touch-Swipe-Baby-Phone/dp/B00CS16EJU%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00CS16EJU",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/VTech-Touch-Swipe-Baby-Phone/dp/tech-data/B00CS16EJU%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00CS16EJU"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00CS16EJU%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00CS16EJU"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00CS16EJU%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00CS16EJU"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00CS16EJU%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00CS16EJU"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B00CS16EJU%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00CS16EJU"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B00CS16EJU%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00CS16EJU"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B00CS16EJU%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00CS16EJU"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "V Tech",
+                  "ProductGroup": "Toy",
+                  "Title": "VTech Touch and Swipe Baby Phone"
+               }
+            },
+            {
+               "ASIN": "B004NNUEWO",
+               "ParentASIN": "B005D5VT4I",
+               "DetailPageURL": "https://www.amazon.com/Motorola-Cordless-Handset-Caller-L601M/dp/B004NNUEWO%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004NNUEWO",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Motorola-Cordless-Handset-Caller-L601M/dp/tech-data/B004NNUEWO%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004NNUEWO"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB004NNUEWO%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004NNUEWO"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB004NNUEWO%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004NNUEWO"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB004NNUEWO%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004NNUEWO"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B004NNUEWO%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004NNUEWO"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B004NNUEWO%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004NNUEWO"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B004NNUEWO%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB004NNUEWO"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "Motorola",
+                  "ProductGroup": "CE",
+                  "Title": "Motorola DECT 6.0 Cordless Phone with 1 Handset and Caller ID L601M"
+               }
+            },
+            {
+               "ASIN": "B00ISKW56Q",
+               "ParentASIN": "B00MBB2O3C",
+               "DetailPageURL": "https://www.amazon.com/Panasonic-KX-TGE233B-Expandable-Cordless-Digital/dp/B00ISKW56Q%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00ISKW56Q",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Panasonic-KX-TGE233B-Expandable-Cordless-Digital/dp/tech-data/B00ISKW56Q%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00ISKW56Q"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00ISKW56Q%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00ISKW56Q"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00ISKW56Q%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00ISKW56Q"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00ISKW56Q%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00ISKW56Q"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B00ISKW56Q%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00ISKW56Q"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B00ISKW56Q%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00ISKW56Q"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B00ISKW56Q%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00ISKW56Q"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "Panasonic",
+                  "ProductGroup": "CE",
+                  "Title": "Panasonic KX-TGE233B Expandable Cordless Digital Phone with Large Keypad - 3 Handsets"
+               }
+            }
+         ]
+      },
+      "_xmlns": "http://webservices.amazon.com/AWSECommerceService/2011-08-01"
+   }
+}

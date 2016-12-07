@@ -1,0 +1,483 @@
+{
+   "ItemSearchResponse": {
+      "OperationRequest": {
+         "HTTPHeaders": {
+            "Header": {
+               "_Name": "UserAgent",
+               "_Value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36"
+            }
+         },
+         "RequestId": "bc98d5e0-5e1c-4331-a956-33ca3156cc78",
+         "Arguments": {
+            "Argument": [
+               {
+                  "_Name": "AWSAccessKeyId",
+                  "_Value": "AKIAJH52CXHDZPFFKDAA"
+               },
+               {
+                  "_Name": "AssociateTag",
+                  "_Value": "de032a-20"
+               },
+               {
+                  "_Name": "Keywords",
+                  "_Value": "headphone"
+               },
+               {
+                  "_Name": "Operation",
+                  "_Value": "ItemSearch"
+               },
+               {
+                  "_Name": "SearchIndex",
+                  "_Value": "All"
+               },
+               {
+                  "_Name": "Service",
+                  "_Value": "AWSECommerceService"
+               },
+               {
+                  "_Name": "Timestamp",
+                  "_Value": "2016-12-06T03:14:26.000Z"
+               },
+               {
+                  "_Name": "Signature",
+                  "_Value": "hQXSIBsN8Czz+TBGP227GHgeaEZlJbQnjUEJSQ0PVbs="
+               }
+            ]
+         },
+         "RequestProcessingTime": "0.0364463080000000"
+      },
+      "Items": {
+         "Request": {
+            "IsValid": "True",
+            "ItemSearchRequest": {
+               "Keywords": "headphone",
+               "ResponseGroup": "Small",
+               "SearchIndex": "All"
+            }
+         },
+         "TotalResults": "3521963",
+         "TotalPages": "352197",
+         "MoreSearchResultsUrl": "https://www.amazon.com/gp/redirect.html?linkCode=xm2&SubscriptionId=AKIAJH52CXHDZPFFKDAA&location=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fsearch%3Fkeywords%3Dheadphone%26url%3Dsearch-alias%253Daws-amazon-aps&tag=de032a-20&creative=386001&camp=2025",
+         "Item": [
+            {
+               "ASIN": "B00SIYEK6K",
+               "ParentASIN": "B0179GQDL2",
+               "DetailPageURL": "https://www.amazon.com/Headphones-Sound-Intone-Microphone-Foldable/dp/B00SIYEK6K%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00SIYEK6K",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Headphones-Sound-Intone-Microphone-Foldable/dp/tech-data/B00SIYEK6K%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SIYEK6K"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00SIYEK6K%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SIYEK6K"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00SIYEK6K%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SIYEK6K"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00SIYEK6K%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SIYEK6K"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B00SIYEK6K%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SIYEK6K"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B00SIYEK6K%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SIYEK6K"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B00SIYEK6K%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SIYEK6K"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "SOUND INTONE",
+                  "ProductGroup": "Speakers",
+                  "Title": "Headphones, Sound Intone I65 Headphones with Microphone and Volume Control for Travel, Work, Sport , Foldable Headset for Iphone and Android Devices(White/gold)"
+               }
+            },
+            {
+               "ASIN": "B0148FSV62",
+               "DetailPageURL": "https://www.amazon.com/Monster-Beats-Ibeats-Headphones-Earphones/dp/B0148FSV62%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0148FSV62",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Monster-Beats-Ibeats-Headphones-Earphones/dp/tech-data/B0148FSV62%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB0148FSV62"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB0148FSV62%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB0148FSV62"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB0148FSV62%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB0148FSV62"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB0148FSV62%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB0148FSV62"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B0148FSV62%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB0148FSV62"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B0148FSV62%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB0148FSV62"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B0148FSV62%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB0148FSV62"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "beats",
+                  "ProductGroup": "Speakers",
+                  "Title": "Monster Beats By Dr Dre Ibeats in Ear Headphones Earphones Black NEW"
+               }
+            },
+            {
+               "ASIN": "B016F8NUPW",
+               "ParentASIN": "B016F8NUNY",
+               "DetailPageURL": "https://www.amazon.com/Headphones-Sound-Intone-Foldable-Microphone/dp/B016F8NUPW%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB016F8NUPW",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Headphones-Sound-Intone-Foldable-Microphone/dp/tech-data/B016F8NUPW%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUPW"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB016F8NUPW%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUPW"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB016F8NUPW%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUPW"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB016F8NUPW%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUPW"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B016F8NUPW%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUPW"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B016F8NUPW%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUPW"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B016F8NUPW%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUPW"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "Sound Intone",
+                  "ProductGroup": "Wireless",
+                  "Title": "Headphones, Sound Intone Foldable Headphones with Microphone and Volume Control, On-ear Wired Headset for iphone and Android Devices (Black/green)"
+               }
+            },
+            {
+               "ASIN": "B00NIBK47W",
+               "ParentASIN": "B00NIBJXLA",
+               "DetailPageURL": "https://www.amazon.com/Headsets-Headphones-Smartphones-Computers-Earphones/dp/B00NIBK47W%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00NIBK47W",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Headsets-Headphones-Smartphones-Computers-Earphones/dp/tech-data/B00NIBK47W%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00NIBK47W"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00NIBK47W%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00NIBK47W"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00NIBK47W%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00NIBK47W"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00NIBK47W%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00NIBK47W"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B00NIBK47W%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00NIBK47W"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B00NIBK47W%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00NIBK47W"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B00NIBK47W%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00NIBK47W"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "intone",
+                  "ProductGroup": "Speakers",
+                  "Title": "Sound Intone Ms200 Stereo Headsets Strong Low Bass Headphones Earbuds for Smartphones Mp3/4 Laptop Computers Tablet Macbook Folding Gaming Earphones (Black/blue)"
+               }
+            },
+            {
+               "ASIN": "B018XI3ASO",
+               "ParentASIN": "B01GTGAMME",
+               "DetailPageURL": "https://www.amazon.com/Bluetooth-Headphones-Hussar-Magicbuds-Wireless/dp/B018XI3ASO%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB018XI3ASO",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Bluetooth-Headphones-Hussar-Magicbuds-Wireless/dp/tech-data/B018XI3ASO%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018XI3ASO"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB018XI3ASO%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018XI3ASO"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB018XI3ASO%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018XI3ASO"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB018XI3ASO%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018XI3ASO"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B018XI3ASO%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018XI3ASO"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B018XI3ASO%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018XI3ASO"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B018XI3ASO%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB018XI3ASO"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "Hussar Inc",
+                  "ProductGroup": "Wireless",
+                  "Title": "Bluetooth Headphones, Hussar Magicbuds Wireless Headphones, IPX4 Sweatproof, Premium Sound with Bass, Noise Cancelling, Ergonomic Design, Secure Fit, Zippered Case, 7 Hrs Playtime with Mic"
+               }
+            },
+            {
+               "ASIN": "B016F8NUKM",
+               "ParentASIN": "B016F8NUNY",
+               "DetailPageURL": "https://www.amazon.com/Headphones-Sound-Intone-Foldable-Microphone/dp/B016F8NUKM%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB016F8NUKM",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Headphones-Sound-Intone-Foldable-Microphone/dp/tech-data/B016F8NUKM%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUKM"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB016F8NUKM%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUKM"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB016F8NUKM%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUKM"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB016F8NUKM%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUKM"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B016F8NUKM%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUKM"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B016F8NUKM%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUKM"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B016F8NUKM%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB016F8NUKM"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "Sound Intone",
+                  "ProductGroup": "Wireless",
+                  "Title": "Headphones, Sound Intone Foldable Headphones with Microphone and Volume Control, On-ear Wired Headset for iphone and Android Devices (Blue/yellow)"
+               }
+            },
+            {
+               "ASIN": "B00MCHE38O",
+               "ParentASIN": "B00NYBGNQ2",
+               "DetailPageURL": "https://www.amazon.com/Sony-MDRXB950BT-Extra-Bluetooth-Headphones/dp/B00MCHE38O%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00MCHE38O",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Sony-MDRXB950BT-Extra-Bluetooth-Headphones/dp/tech-data/B00MCHE38O%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00MCHE38O"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00MCHE38O%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00MCHE38O"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00MCHE38O%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00MCHE38O"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00MCHE38O%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00MCHE38O"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B00MCHE38O%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00MCHE38O"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B00MCHE38O%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00MCHE38O"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B00MCHE38O%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00MCHE38O"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "Sony",
+                  "ProductGroup": "Speakers",
+                  "Title": "Sony MDRXB950BT/B Extra Bass Bluetooth Headphones (Black)"
+               }
+            },
+            {
+               "ASIN": "B00SB6SP0C",
+               "ParentASIN": "B00SB6SOMG",
+               "DetailPageURL": "https://www.amazon.com/Lightweight-Over-Ear-Headphones-Comfortable-Earphones-/dp/B00SB6SP0C%3Fpsc%3D1%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00SB6SP0C",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Lightweight-Over-Ear-Headphones-Comfortable-Earphones-/dp/tech-data/B00SB6SP0C%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SB6SP0C"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00SB6SP0C%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SB6SP0C"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00SB6SP0C%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SB6SP0C"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00SB6SP0C%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SB6SP0C"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B00SB6SP0C%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SB6SP0C"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B00SB6SP0C%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SB6SP0C"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B00SB6SP0C%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00SB6SP0C"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "Ausdom",
+                  "ProductGroup": "Wireless",
+                  "Title": "AUSDOM Lightweight Over-Ear Wired HiFi Stereo Headphones with Built-in Mic Comfortable Leather Earphones- Blue"
+               }
+            },
+            {
+               "ASIN": "B00HVLUR86",
+               "DetailPageURL": "https://www.amazon.com/Audio-Technica-ATH-M50x-Professional-Monitor-Headphones/dp/B00HVLUR86%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00HVLUR86",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Audio-Technica-ATH-M50x-Professional-Monitor-Headphones/dp/tech-data/B00HVLUR86%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00HVLUR86"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00HVLUR86%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00HVLUR86"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00HVLUR86%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00HVLUR86"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00HVLUR86%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00HVLUR86"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B00HVLUR86%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00HVLUR86"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B00HVLUR86%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00HVLUR86"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B00HVLUR86%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00HVLUR86"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "Audio-Technica U.S",
+                  "ProductGroup": "Musical Instruments",
+                  "Title": "Audio-Technica ATH-M50x Professional Studio Monitor Headphones"
+               }
+            },
+            {
+               "ASIN": "B003LPTAYI",
+               "DetailPageURL": "https://www.amazon.com/Sennheiser-202-Professional-Headphones-Black/dp/B003LPTAYI%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003LPTAYI",
+               "ItemLinks": {
+                  "ItemLink": [
+                     {
+                        "Description": "Technical Details",
+                        "URL": "https://www.amazon.com/Sennheiser-202-Professional-Headphones-Black/dp/tech-data/B003LPTAYI%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB003LPTAYI"
+                     },
+                     {
+                        "Description": "Add To Baby Registry",
+                        "URL": "https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB003LPTAYI%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB003LPTAYI"
+                     },
+                     {
+                        "Description": "Add To Wedding Registry",
+                        "URL": "https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB003LPTAYI%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB003LPTAYI"
+                     },
+                     {
+                        "Description": "Add To Wishlist",
+                        "URL": "https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB003LPTAYI%26SubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB003LPTAYI"
+                     },
+                     {
+                        "Description": "Tell A Friend",
+                        "URL": "https://www.amazon.com/gp/pdp/taf/B003LPTAYI%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB003LPTAYI"
+                     },
+                     {
+                        "Description": "All Customer Reviews",
+                        "URL": "https://www.amazon.com/review/product/B003LPTAYI%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB003LPTAYI"
+                     },
+                     {
+                        "Description": "All Offers",
+                        "URL": "https://www.amazon.com/gp/offer-listing/B003LPTAYI%3FSubscriptionId%3DAKIAJH52CXHDZPFFKDAA%26tag%3Dde032a-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB003LPTAYI"
+                     }
+                  ]
+               },
+               "ItemAttributes": {
+                  "Manufacturer": "Sennheiser",
+                  "ProductGroup": "Speakers",
+                  "Title": "Sennheiser HD 202 II Professional Headphones (Black)"
+               }
+            }
+         ]
+      },
+      "_xmlns": "http://webservices.amazon.com/AWSECommerceService/2011-08-01"
+   }
+}
