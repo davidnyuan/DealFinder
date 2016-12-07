@@ -157,7 +157,7 @@ class SearchPage extends React.Component {
           {dealObjects.length != 0 &&
             dealObjects}
           {dealObjects.length == 0 && this.state.searchAttempted &&
-            <p> No results found </p>}
+            <p id="noResults" className="well"> No results found </p>}
         </div>
       </div>
     );
