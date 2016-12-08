@@ -18,6 +18,7 @@ class SearchPage extends React.Component {
       searchAttempted: false
     };
     this.updateParent = this.updateParent.bind(this);
+    this.sortOnChange = this.sortOnChange.bind(this);
   }
 
   //When component mounts (like onload), set state according to firebase user.
@@ -105,6 +106,10 @@ class SearchPage extends React.Component {
     return itemArray;
   }
 
+  sortOnChange() {
+    this.setState({objects: this.sortItems(this.state.objects)});
+  }
+
   render() {
     //Map all objects in state to ItemObject components
     var dealObjects = this.state.objects.map((item, id) => {
@@ -142,11 +147,11 @@ class SearchPage extends React.Component {
         </Button>
         <Collapse id="filterOptions" in={this.state.open}>
           <div>
-            <form id="priceVSdiscount">
+            <form id="priceVSdiscount" onChange={this.sortOnChange}>
               <input type="radio" name="priceVSdiscount" value="price" defaultChecked={true} /> Price<br />
               <input type="radio" name="priceVSdiscount" value="discount" /> Discount<br />
             </form>
-            <form id="ascVSdesc">
+            <form id="ascVSdesc" onChange={this.sortOnChange}>
               <input type="radio" name="ascVSdesc" value="ascending" defaultChecked={true} /> Ascending<br />
               <input type="radio" name="ascVSdesc" value="descending" /> Descending<br />
             </form>
