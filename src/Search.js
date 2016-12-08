@@ -78,11 +78,13 @@ class SearchPage extends React.Component {
       if(res.deals.length != 0) {
       res.deals.forEach((deals) => {
         var deal = deals.deal; //Confusing, but this is what sqoot's returns are like. deals.deals.deal
-        //Push a new object defining the individual deal item to objectArray. 
-        objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
-          deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at, deal.expires_at));
-        objectArray = this.sortItems(objectArray);
-        this.setState({ objects: objectArray, loaded: true });
+        //Push a new object defining the individual deal item to objectArray.
+        if(deal.title.toLowerCase().includes(query.toLowerCase())) {
+          objectArray.push(new dealObject(deal.title, deal.provider_name, deal.price, deal.discount_percentage,
+            deal.image_url, deal.untracked_url, deal.merchant.name.split(" ")[0], deal.created_at, deal.expires_at));
+          objectArray = this.sortItems(objectArray);
+          this.setState({ objects: objectArray, loaded: true });
+        }
       });
       } else {
         this.setState({ objects: [], loaded: true, searchAttempted: true});
